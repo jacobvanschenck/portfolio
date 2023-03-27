@@ -1,0 +1,42 @@
+---
+export interface Props {
+  imgSrc: string;
+  techList: Array<string>;
+  projectTitle: string;
+}
+
+const { imgSrc, techList, projectTitle, ...props } = Astro.props;
+---
+
+<div
+  class="flex flex-col overflow-hidden rounded-md shadow-2xl dark:bg-gray-900"
+  {...props}
+>
+  <img src={imgSrc} />
+  <div class="flex flex-col items-center py-4 px-24">
+    <p class="p-4 text-2xl">{projectTitle}</p>
+    <ul class="flex gap-2">
+      {
+        techList.map((tech: string) => {
+          return (
+            <li class="rounded-3xl border-2 border-blue-500 px-3 py-1 text-blue-500 dark:border-none dark:bg-blue-900/20">
+              {tech}
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+  <div class="flex w-full justify-around py-6">
+    <a
+      href=""
+      class="rounded-lg border-2 border-black px-3 py-1 dark:border-none dark:bg-gray-800"
+      >Live Site</a
+    >
+    <a
+      href=""
+      class="rounded-lg border-2 border-black px-3 py-1 dark:border-none dark:bg-gray-800"
+      >Source Code</a
+    >
+  </div>
+</div>

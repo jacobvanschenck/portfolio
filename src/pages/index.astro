@@ -1,0 +1,90 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <div
+      class="w-full bg-blue-50 text-neutral-900 dark:bg-gray-800 dark:text-neutral-200"
+    >
+      <Header title={SITE_TITLE} />
+      <main class="w-full">
+        <section
+          class="flex h-screen w-full flex-col items-center justify-center pt-10"
+        >
+          <h1>
+            Hi my name is <span class="text-red-500">Jacob</span>, and I like to
+            build stuff
+          </h1>
+          <button>Let's Connect</button>
+        </section>
+        <section
+          id="projects"
+          class="flex h-screen flex-col items-center justify-center gap-10 px-40"
+        >
+          <h2 class="text-3xl">My Projects</h2>
+          <div class="flex gap-10">
+            <ProjectCard
+              imgSrc={'https://picsum.photos/300/200'}
+              techList={['React', 'Solidity', 'HardHat']}
+              projectTitle={'Project #1'}
+            />
+            <ProjectCard
+              imgSrc={'https://picsum.photos/300/200'}
+              techList={['React', 'Solidity', 'HardHat']}
+              projectTitle={'Project #2'}
+            />
+            <ProjectCard
+              imgSrc={'https://picsum.photos/300/200'}
+              techList={['React', 'Solidity', 'HardHat']}
+              projectTitle={'Project #3'}
+            />
+          </div>
+        </section>
+        <section
+          id="connect"
+          class="flex h-screen flex-col items-center justify-center gap-10"
+        >
+          <h2 class="text-3xl">Let's Connect</h2>
+          <form
+            action="/api/sendMessage"
+            method="send"
+            class="flex w-96 flex-col items-center gap-10 rounded-md p-5 shadow-2xl dark:bg-gray-900"
+          >
+            <h3 class="w-full text-center text-xl">Message Me</h3>
+            <label class="flex w-full flex-col">
+              email
+              <input
+                class="border-2 border-x-blue-50 border-b-black border-t-blue-50 bg-transparent dark:border-x-gray-900 dark:border-t-gray-900 dark:border-b-white"
+                type="email"
+                required
+              />
+            </label>
+            <label class="flex w-full flex-col">
+              message
+              <input
+                class="border-2 border-x-blue-50 border-b-black border-t-blue-50 bg-transparent dark:border-x-gray-900 dark:border-t-gray-900 dark:border-b-white"
+                id="message-field"
+                type="text"
+                required
+              />
+            </label>
+            <input
+              class="w-fit rounded-lg border-2 border-black px-3 py-1 text-center dark:border-none dark:bg-gray-800"
+              value="Send"
+            />
+          </form>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>
