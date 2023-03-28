@@ -16,7 +16,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
       class="w-full bg-blue-50 text-neutral-900 dark:bg-gray-800 dark:text-neutral-200"
     >
       <Header title={SITE_TITLE} />
-      <main class="w-full">
+      <main class="flex w-full flex-col items-center">
         <section
           class="flex h-screen w-full flex-col items-center justify-center pt-10"
         >
@@ -28,24 +28,34 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         </section>
         <section
           id="projects"
-          class="flex h-screen flex-col items-center justify-center gap-10 px-40"
+          class="flex h-screen max-w-[1300px] flex-col items-center justify-center gap-10 px-40"
         >
           <h2 class="text-3xl">My Projects</h2>
-          <div class="flex gap-10">
+          <div class="flex flex-col gap-10">
             <ProjectCard
-              imgSrc={'https://picsum.photos/300/200'}
-              techList={['React', 'Solidity', 'HardHat']}
-              projectTitle={'Project #1'}
+              imgSrc={'/turbo-runners.png'}
+              techList={['Next.js', 'TailwindCSS', 'Solidity', 'HardHat']}
+              projectTitle={'Turbo Runners'}
+              siteLink="https://turbo-runners.vercel.app/"
+              githubLink="https://github.com/jacobvanschenck/nft-project-nextjs"
+              description="An NFT Minting site for an ERC-721a token. This NFT includes Whitelisting address for early minting, Royalties on mint and transfer, and delayed art reveal dates."
             />
             <ProjectCard
-              imgSrc={'https://picsum.photos/300/200'}
-              techList={['React', 'Solidity', 'HardHat']}
-              projectTitle={'Project #2'}
+              imgSrc={'/my-dex.png'}
+              techList={['React', 'Bootstrap', 'Solidity', 'Truffle']}
+              projectTitle={'MyDex'}
+              flipped={true}
+              siteLink="https://dex-vs.netlify.app/"
+              githubLink="https://github.com/jacobvanschenck/My-Dex"
+              description="A web3 trading platform to create Market Orders and Limit Orders for ERC-20 coins."
             />
             <ProjectCard
-              imgSrc={'https://picsum.photos/300/200'}
-              techList={['React', 'Solidity', 'HardHat']}
-              projectTitle={'Project #3'}
+              imgSrc={'/multi-sig.png'}
+              techList={['React', 'Bootstrap', 'Solidity', 'Truffle']}
+              projectTitle={'MultiSig Wallet'}
+              siteLink="https://multi-sig-wallet-vs.netlify.app/"
+              githubLink="https://github.com/jacobvanschenck/Multisig-Wallet"
+              description="A smart contract wallet that requires approval from 2 designated addresses to complete transactions"
             />
           </div>
         </section>
@@ -79,6 +89,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             </label>
             <input
               class="w-fit rounded-lg border-2 border-black px-3 py-1 text-center dark:border-none dark:bg-gray-800"
+              type="submit"
               value="Send"
             />
           </form>
