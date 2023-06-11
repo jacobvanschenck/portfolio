@@ -21,11 +21,11 @@ const {
 } = Astro.props;
 ---
 
-<div class="relative flex items-center" {...props}>
+<div class="group relative flex items-center" {...props}>
   <a
     href={siteLink}
     target="_blank"
-    class={`z-10 rounded-sm overflow-hidden flex cursor-pointer blur-sm grayscale transition-all duration-200 ease-in-out hover:filter-none ${
+    class={`z-10 rounded-sm overflow-hidden flex cursor-pointer blur-sm grayscale transition-all duration-200 ease-in-out group-hover:filter-none ${
       flipped ? 'justify-end' : 'justify-start'
     }`}
   >
