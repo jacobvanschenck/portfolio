@@ -14,7 +14,9 @@ export const post: APIRoute = async ({ request }) => {
   //lets use slack instead
 
   try {
-    const web = new WebClient(import.meta.env.BOT_USER_TOKEN);
+    const web = new WebClient(
+      import.meta.env.BOT_USER_TOKEN ?? process.env.BOT_USER_TOKEN
+    );
     const res = await web.chat.postMessage({
       channel: 'portfolio-contact-form',
       text: `====================\n📥 *NEW MESSAGE*\n*email*: ${email}\n*message*: \n>${message}\n====================`,
