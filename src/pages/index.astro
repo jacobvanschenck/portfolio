@@ -8,13 +8,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth ">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body>
+  <body class="dark">
     <div
-      class="w-full bg-blue-50 text-neutral-900 dark:bg-gray-800 dark:text-neutral-200"
+      class="w-full bg-blue-50 text-neutral-900 dark:bg-gray-900 dark:text-blue-100"
     >
       <Header title={SITE_TITLE} />
       <main class="flex w-full flex-col items-center">
@@ -46,10 +46,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         </section>
         <section
           id="projects"
-          class="flex min-h-screen max-w-[1300px] flex-col items-center justify-center gap-10 px-40"
+          class="flex min-h-screen max-w-[1300px] flex-col items-center justify-center gap-10 px-8 sm:px-40"
         >
           <h2 class="text-3xl">My Projects</h2>
-          <div class="flex flex-col gap-10">
+          <div class="flex flex-col gap-20">
             <ProjectCard
               imgSrc={'/turbo-runners.png'}
               techList={['Next.js', 'TailwindCSS', 'Solidity', 'HardHat']}

@@ -21,29 +21,29 @@ const {
 } = Astro.props;
 ---
 
-<div class="group relative flex items-center" {...props}>
+<div class="group relative flex items-center aspect-square sm:aspect-auto" {...props}>
   <a
     href={siteLink}
     target="_blank"
-    class={`z-10 rounded-sm overflow-hidden flex cursor-pointer blur-sm grayscale transition-all duration-200 ease-in-out group-hover:filter-none ${
+    class={`rounded-sm overflow-hidden flex h-full sm:h-auto cursor-pointer sm:blur-sm grayscale transition-all duration-200 ease-in-out group-hover:filter-none ${
       flipped ? 'justify-end' : 'justify-start'
     }`}
   >
-    <img src={imgSrc} class="w-3/5 object-cover" />
+    <img src={imgSrc} class="sm:w-3/5 object-cover" />
   </a>
   <div
-    class={`absolute flex w-7/12 flex-col gap-4 dark:border-none ${
+    class={`absolute p-4 sm:p-0 h-full sm:h-auto flex sm:w-7/12 flex-col gap-4 z-10 dark:bg-slate-800/90 sm:dark:bg-transparent dark:border-none ${
       flipped ? 'text-left left-0 items-start' : 'text-right right-0 items-end'
     }`}
   >
     <h3 class="text-2xl">{projectTitle}</h3>
-    <div class="z-20 rounded-sm py-4 px-6 dark:bg-gray-700">
+    <div class="z-20 rounded-sm sm:py-4 sm:px-6 sm:dark:bg-gray-700">
       <p>{description}</p>
     </div>
     <ul class="flex gap-4">
       {
         techList.map((tech: string) => {
-          return <li class="dark:text-neutral-400">{tech}</li>;
+          return <li class="dark:text-blue-300">{tech}</li>;
         })
       }
     </ul>
