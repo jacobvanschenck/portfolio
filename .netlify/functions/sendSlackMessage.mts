@@ -1,22 +1,18 @@
 import type { APIRoute } from 'astro';
 import { WebClient } from '@slack/web-api';
 
-export const post: APIRoute = async ({ request }) => {
+export const handler = async (request, context) => {
   const data = await request.formData();
   const email = data.get('email');
   const message = data.get('message');
   if (!email || !message)
     return new Response(
       JSON.stringify({ message: 'missing required fields' }),
-      { status: 400 }
+      { status: 422 }
     );
-
-  //lets use slack instead
 
   try {
-    const web = new WebClient(
-      import.meta.env.BOT_USER_TOKEN ?? process.env.BOT_USER_TOKEN
-    );
+    const web = new WebClient(Netlify.env.get("BOT_USER_TOKEN");
     const res = await web.chat.postMessage({
       channel: 'portfolio-contact-form',
       text: `====================\n📥 *NEW MESSAGE*\n*email*: ${email}\n*message*: \n>${message}\n====================`,

@@ -3,89 +3,107 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import ContactForm from '../components/ContactForm.tsx';
+// import ContactForm from '../components/ContactForm.tsx';
+import Terminal from '../components/Terminal.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth ">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="dark">
-    <div
-      class="w-full bg-blue-50 text-neutral-900 dark:bg-gray-900 dark:text-blue-100"
-    >
-      <Header title={SITE_TITLE} />
-      <main class="flex w-full flex-col items-center">
-        <section
-          id="hero"
-          class="flex h-screen w-full flex-col items-center justify-center pt-10"
-        >
-          <h1>
-            Hi my name is <span class="text-red-500">Jacob</span>, and I like to
-            build stuff
-          </h1>
-          <a href="#connect">Let&apos;s Connect</a>
-          <a href="#projects" class="m-10 animate-bounce">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1"
-              stroke="currentColor"
-              class="h-10 w-10"
+<html
+    lang="en"
+    class="dark:bg-gray-900 scroll-smooth bg-slate-50 dark:text-slate-50"
+>
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body class="dark">
+        <div class="w-full">
+            <Header />
+            <main
+                class="flex flex-col items-center mx-auto w-full max-w-[1000px]"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
-          </a>
-        </section>
-        <section
-          id="projects"
-          class="flex min-h-screen max-w-[1300px] flex-col items-center justify-center gap-10 px-8 sm:px-40"
-        >
-          <h2 class="text-3xl">My Projects</h2>
-          <div class="flex flex-col gap-20">
-            <ProjectCard
-              imgSrc={'/turbo-runners.png'}
-              techList={['Next.js', 'TailwindCSS', 'Solidity', 'HardHat']}
-              projectTitle={'Turbo Runners'}
-              siteLink="https://turbo-runners.vercel.app/"
-              githubLink="https://github.com/jacobvanschenck/nft-project-nextjs"
-              description="An NFT Minting site for an ERC-721a token. This NFT includes Whitelisting address for early minting, Royalties on mint and transfer, and delayed art reveal dates."
-            />
-            <ProjectCard
-              imgSrc={'/my-dex.png'}
-              techList={['React', 'Bootstrap', 'Solidity', 'Truffle']}
-              projectTitle={'MyDex'}
-              flipped={true}
-              siteLink="https://dex-vs.netlify.app/"
-              githubLink="https://github.com/jacobvanschenck/My-Dex"
-              description="A web3 trading platform to create Market Orders and Limit Orders for ERC-20 coins."
-            />
-            <ProjectCard
-              imgSrc={'/multi-sig.png'}
-              techList={['React', 'Bootstrap', 'Solidity', 'Truffle']}
-              projectTitle={'MultiSig Wallet'}
-              siteLink="https://multi-sig-wallet-vs.netlify.app/"
-              githubLink="https://github.com/jacobvanschenck/Multisig-Wallet"
-              description="A smart contract wallet that requires approval from 2 designated addresses to complete transactions"
-            />
-          </div>
-        </section>
-        <section
-          id="connect"
-          class="flex h-screen flex-col items-center justify-center gap-10"
-        >
-          <h2 class="text-3xl">Let's Connect</h2>
-          <ContactForm client:visible />
-        </section>
-      </main>
-    <Footer />
-    </div>
-  </body>
+                <section
+                    class="flex flex-col gap-16 p-4 w-full min-h-screen font-terminal pt-[150px]"
+                >
+                    <h1 class="text-5xl leading-snug md:text-6xl font-terminal">
+                        <span class="mr-2">></span>Jacob Van Schenck <span
+                            class="animate-flash bg-slate-300"
+                            >&nbsp;
+                        </span>
+                    </h1>
+                    <div class="flex font-sans">
+                        Check out my&nbsp;
+                        <a
+                            class="font-bold text-amber-500 group"
+                            href="#projects"
+                        >
+                            side projects
+                            <div
+                                class="mt-1 h-1 bg-amber-500 transition-transform duration-100 scale-x-0 group-hover:scale-x-100"
+                            >
+                            </div>
+                        </a>
+                        &nbsp;below
+                    </div>
+                    <Terminal />
+                </section>
+                <section
+                    id="projects"
+                    class="flex flex-col gap-10 justify-center items-center px-8 pt-16 min-h-screen sm:px-40 max-w-[1300px]"
+                >
+                    <h2 class="text-3xl">My Projects</h2>
+                    <div class="flex flex-col gap-20">
+                        <ProjectCard
+                            imgSrc={'/turbo-runners.png'}
+                            techList={[
+                                'Next.js',
+                                'TailwindCSS',
+                                'Solidity',
+                                'HardHat',
+                            ]}
+                            projectTitle={'Turbo Runners'}
+                            siteLink="https://turbo-runners.vercel.app/"
+                            githubLink="https://github.com/jacobvanschenck/nft-project-nextjs"
+                            description="An NFT Minting site for an ERC-721a token. This NFT includes Whitelisting address for early minting, Royalties on mint and transfer, and delayed art reveal dates."
+                        />
+                        <ProjectCard
+                            imgSrc={'/my-dex.png'}
+                            techList={[
+                                'React',
+                                'Bootstrap',
+                                'Solidity',
+                                'Truffle',
+                            ]}
+                            projectTitle={'MyDex'}
+                            flipped={true}
+                            siteLink="https://dex-vs.netlify.app/"
+                            githubLink="https://github.com/jacobvanschenck/My-Dex"
+                            description="A web3 trading platform to create Market Orders and Limit Orders for ERC-20 coins."
+                        />
+                        <ProjectCard
+                            imgSrc={'/multi-sig.png'}
+                            techList={[
+                                'React',
+                                'Bootstrap',
+                                'Solidity',
+                                'Truffle',
+                            ]}
+                            projectTitle={'MultiSig Wallet'}
+                            siteLink="https://multi-sig-wallet-vs.netlify.app/"
+                            githubLink="https://github.com/jacobvanschenck/Multisig-Wallet"
+                            description="A smart contract wallet that requires approval from 2 designated addresses to complete transactions"
+                        />
+                    </div>
+                </section>
+                <section
+                    id="connect"
+                    class="flex flex-col gap-10 justify-center items-center h-screen"
+                >
+                    <h2 class="text-3xl">Let's Connect</h2>
+                    <!-- <ContactForm client:visible /> -->
+                </section>
+            </main>
+            <Footer />
+        </div>
+    </body>
 </html>

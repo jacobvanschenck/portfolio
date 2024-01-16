@@ -1,0 +1,21 @@
+---
+export interface Props {
+    label: string;
+    link: string;
+    class: string;
+}
+
+const { label, link, class: className } = Astro.props;
+---
+
+<a
+    class:list={[className, 'text-lg hover:text-amber-500 group']}
+    href={link}
+    target="_blank"
+>
+    {label}
+    <div
+        class="mt-1 h-1 bg-amber-500 transition-transform duration-100 scale-x-0 group-hover:scale-x-100"
+    >
+    </div>
+</a>

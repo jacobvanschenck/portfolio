@@ -1,0 +1,97 @@
+---
+const data = [
+    {
+        command: 'Jacob.currentLocation',
+        response: [{ label: 'Nashville, TN', link: null }],
+    },
+    {
+        command: 'Jacob.contactInfo',
+        response: [
+            {
+                label: 'jacob.vanschenck@gmail.com',
+                link: 'mailto:jacob.vanschenck@gmail.com',
+            },
+            {
+                label: 'LinkedIn',
+                link: 'https://www.linkedin.com/in/jacobvanschenck/',
+            },
+            { label: 'Github', link: 'https://github.com/jacobvanschenck/' },
+        ],
+    },
+    {
+        command: 'Jacob.resume',
+        response: [
+            {
+                label: 'jacob-van-schenck.pdf',
+                link: '/Software-Engineer-Jacob-Van-Schenck.pdf',
+            },
+        ],
+    },
+    {
+        command: 'Jacob.skills',
+        response: [
+            { label: 'typescript', link: null },
+            { label: 'solidity', link: null },
+            { label: 'ethers', link: null },
+            { label: 'hardhat', link: null },
+            { label: 'Nextjs', link: null },
+            { label: 'html', link: null },
+            { label: 'css', link: null },
+            { label: 'tailwindcss', link: null },
+            { label: 'styled-components', link: null },
+            { label: 'gql', link: null },
+            { label: 'git', link: null },
+        ],
+    },
+] as const;
+---
+
+<div class="flex justify-center w-full">
+    <div class="flex-1 rounded-lg bg-slate-800">
+        <div class="flex p-2 rounded-t-lg bg-slate-400 gap-[10px]">
+            <div class="bg-red-500 rounded-full w-[14px] h-[14px]"></div>
+            <div class="bg-yellow-500 rounded-full w-[14px] h-[14px]"></div>
+            <div class="bg-green-500 rounded-full w-[14px] h-[14px]"></div>
+        </div>
+        <div class="flex flex-col gap-6 p-9">
+            {
+                data.map((m) => (
+                    <div>
+                        <p>> {m.command}</p>
+                        <p class="text-yellow-200">
+                            [{' '}
+                            {m.response.map((r, i) => (
+                                <>
+                                    &quot;
+                                    {r.link ? (
+                                        <a
+                                            class="text-cyan-300 hover:font-bold mx-[-8px]"
+                                            href={r.link}
+                                            target="__blank"
+                                        >
+                                            {r.label}
+                                        </a>
+                                    ) : (
+                                        <span class="mx-[-8px]">{r.label}</span>
+                                    )}
+                                    &quot;
+                                    <span class="ml-[-8px]">
+                                        {m.response.length > 1 &&
+                                        i < m.response.length
+                                            ? ', '
+                                            : ''}
+                                    </span>
+                                </>
+                            ))}{' '}
+                            ]
+                        </p>
+                    </div>
+                ))
+            }
+            <p>
+                <span class="mr-2">></span>
+                <span class="animate-flash bg-slate-300">&nbsp;</span>
+            </p>
+        </div>
+    </div>
+</div>
