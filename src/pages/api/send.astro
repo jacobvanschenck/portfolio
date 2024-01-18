@@ -1,0 +1,30 @@
+---
+import { WebClient } from '@slack/web-api';
+
+export const partial = true;
+
+if (Astro.request.method === 'POST') {
+    try {
+        const data = await Astro.request.formData();
+        const email = data.get('email');
+        const message = data.get('message');
+        if (!email || !message)
+            return new Response(
+                JSON.stringify({ message: 'missing required fields' }),
+                { status: 422 }
+            );
+
+        const web = new WebClient(import.meta.env.SLACK_TOKEN);
+        await web.chat.postMessage({
+            channel: 'portfolio-contact-form',
+            text: `\n>📥  *NEW MESSAGE*\n>\n>*Email*: \n> ${email}\n>*Message*: \n> ${message}\n`,
+        });
+        return new Response('Thanks for your message!');
+    } catch (err) {
+        console.error(err);
+        return new Response('Something went wrong');
+    }
+}
+---
+
+Thanks for your message!
