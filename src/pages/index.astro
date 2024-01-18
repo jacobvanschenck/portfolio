@@ -11,12 +11,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <!DOCTYPE html>
 <html
     lang="en"
-    class="dark:bg-gray-900 scroll-smooth bg-slate-50 dark:text-slate-50"
+    x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
+    x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
+    x-bind:class="{ 'dark': darkMode }"
 >
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
-    <body class="dark">
+    <body class="dark:bg-gray-900 scroll-smooth bg-slate-50 dark:text-slate-50">
         <div class="w-full">
             <Header />
             <main
