@@ -20,7 +20,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
     <body
-        class="bg-gradient-to-br from-slate-300 to-slate-50 dark:from-slate-900 dark:to-slate-700 dark:text-slate-50"
+        class="bg-gradient-to-br to-slate-300 from-slate-50 text-slate-950 dark:from-slate-900 dark:to-slate-700 dark:text-slate-50"
     >
         <div class="w-full">
             <Header />
@@ -32,7 +32,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                 >
                     <h1 class="text-6xl leading-snug md:text-6xl font-terminal">
                         <span class="mr-2">></span>Jacob Van Schenck <span
-                            class="animate-flash bg-slate-300"
+                            class="animate-flash bg-slate-950 dark:bg-slate-300"
                             >&nbsp;
                         </span>
                     </h1>
@@ -75,9 +75,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                             imgSrc={'/my-dex.png'}
                             techList={[
                                 'React',
-                                'Bootstrap',
+                                'TailwindCSS',
                                 'Solidity',
-                                'Truffle',
+                                'HardHat',
+                                'Viem',
                             ]}
                             projectTitle={'MyDex'}
                             siteLink="https://dex-vs.netlify.app/"
@@ -88,9 +89,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                             imgSrc={'/multi-sig.png'}
                             techList={[
                                 'React',
-                                'Bootstrap',
+                                'TailwindCSS',
                                 'Solidity',
-                                'Truffle',
+                                'HardHat',
+                                'Viem',
                             ]}
                             projectTitle={'MultiSig Wallet'}
                             siteLink="https://multi-sig-wallet-vs.netlify.app/"
