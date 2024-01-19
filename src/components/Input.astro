@@ -8,10 +8,10 @@ const { label, type } = Astro.props;
 ---
 
 <label
-    class="flex flex-col w-full transition duration-150 focus-within:text-amber-500 hover:text-amber-500"
+    class="flex flex-col w-full transition duration-150 focus-within:text-amber-500 hover:text-amber-500 group"
 >
     {label}<input
-        class="bg-transparent border-2 transition duration-150 focus:outline-none text-slate-50 border-x-slate-50 border-b-black border-t-slate-50 dark:border-x-gray-700 dark:border-t-gray-700 dark:border-b-white hover:border-b-amber-500 focus:dark:border-b-amber-500"
+        class="bg-transparent border-2 transition duration-150 focus:outline-none text-slate-50 border-x-transparent border-b-black border-t-transparent dark:border-x-transparent dark:border-t-transparent dark:border-b-white group-hover:border-b-amber-500 focus:dark:border-b-amber-500"
         type={type}
         name={label}
         required

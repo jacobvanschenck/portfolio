@@ -14,20 +14,23 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
     x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
     x-bind:class="{ 'dark': darkMode }"
+    class="scroll-smooth"
 >
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
-    <body class="dark:bg-gray-900 scroll-smooth bg-slate-50 dark:text-slate-50">
+    <body
+        class="bg-gradient-to-br from-slate-300 to-slate-50 dark:from-slate-900 dark:to-slate-700 dark:text-slate-50"
+    >
         <div class="w-full">
             <Header />
             <main
                 class="flex flex-col items-center mx-auto w-full max-w-[1000px]"
             >
                 <section
-                    class="flex flex-col gap-16 p-4 w-full min-h-screen font-terminal pt-[150px]"
+                    class="flex flex-col gap-16 px-8 w-full min-h-screen font-terminal pt-[150px]"
                 >
-                    <h1 class="text-5xl leading-snug md:text-6xl font-terminal">
+                    <h1 class="text-6xl leading-snug md:text-6xl font-terminal">
                         <span class="mr-2">></span>Jacob Van Schenck <span
                             class="animate-flash bg-slate-300"
                             >&nbsp;
@@ -51,10 +54,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                 </section>
                 <section
                     id="projects"
-                    class="flex flex-col gap-10 justify-center items-center px-8 pt-16 min-h-screen sm:px-40 max-w-[1300px]"
+                    class="flex flex-col gap-8 justify-center pt-16 min-h-screen max-w-[1300px]"
                 >
-                    <h2 class="text-3xl">My Projects</h2>
-                    <div class="flex flex-col gap-20">
+                    <h2 class="pl-8 text-3xl sm:text-5xl">My Projects</h2>
+                    <div class="flex flex-col gap-16">
                         <ProjectCard
                             imgSrc={'/turbo-runners.png'}
                             techList={[
@@ -77,7 +80,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                                 'Truffle',
                             ]}
                             projectTitle={'MyDex'}
-                            flipped={true}
                             siteLink="https://dex-vs.netlify.app/"
                             githubLink="https://github.com/jacobvanschenck/My-Dex"
                             description="A web3 trading platform to create Market Orders and Limit Orders for ERC-20 coins."
@@ -99,10 +101,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                 </section>
                 <section
                     id="connect"
-                    class="flex flex-col gap-10 justify-center items-center h-screen"
+                    class="flex items-center w-full min-h-screen max-w-[1300px]"
                 >
-                    <h2 class="text-3xl">Let's Connect</h2>
-                    <ContactForm />
+                    <div class="flex flex-col gap-12">
+                        <h2 class="text-3xl sm:text-5xl">Let's Connect</h2>
+                        <p class="w-full text-xl text-center">
+                            Feel free to reach out and I will get back to you as
+                            soon as I can.
+                        </p>
+                        <ContactForm />
+                    </div>
                 </section>
             </main>
             <Footer />
