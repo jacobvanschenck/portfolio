@@ -14,18 +14,18 @@ const { imgSrc, techList, projectTitle, siteLink, description, ...props } =
 <a
     href={siteLink}
     target="_blank"
-    class="flex flex-col-reverse gap-8 p-8 rounded-lg transition-all duration-150 ease-in-out cursor-pointer md:flex-row group dark:hover:bg-slate-700/50"
+    class="flex flex-col-reverse gap-6 p-8 rounded-lg transition-all duration-150 ease-in-out cursor-pointer sm:gap-8 md:flex-row group dark:hover:bg-slate-700/50 hover:bg-slate-300/50"
     {...props}
 >
     <img
         src={imgSrc}
-        class="object-cover object-top w-80 rounded-lg border-2 transition-all duration-150 ease-in-out border-slate-700 aspect-video group-hover:border-slate-600"
+        class="object-cover object-top w-80 rounded-lg border-2 transition-all duration-150 ease-in-out group-hover:scale-95 border-slate-700 aspect-video dark:group-hover:border-amber-500/50 group-hover:border-violet-600/50"
         alt={'Screen shot of ' + projectTitle}
     />
     <div class="flex flex-col gap-4">
         <div class="flex gap-2 items-center">
             <h3
-                class="text-2xl transition-all duration-150 ease-in-out group-hover:text-amber-500"
+                class="text-2xl font-bold transition-all duration-150 ease-in-out group-hover:text-violet-600 text-slate-700 dark:text-slate-200 group-hover:dark:text-amber-500"
             >
                 {projectTitle}
             </h3>
@@ -35,7 +35,7 @@ const { imgSrc, techList, projectTitle, siteLink, description, ...props } =
                 viewBox="0 0 24 24"
                 stroke-width="2"
                 stroke="currentColor"
-                class="w-4 h-4 transition-all duration-150 ease-in-out group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:stroke-amber-500"
+                class="w-4 h-4 transition-all duration-150 ease-in-out group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:stroke-violet-500 group-hover:dark:stroke-amber-500"
             >
                 <path
                     stroke-linecap="round"
@@ -43,12 +43,12 @@ const { imgSrc, techList, projectTitle, siteLink, description, ...props } =
                     d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"></path>
             </svg>
         </div>
-        <p class="text-slate-400">{description}</p>
-        <ul class="flex flex-wrap gap-4">
+        <p class="text-slate-500 dark:text-slate-400">{description}</p>
+        <ul class="flex flex-wrap gap-2 sm:gap-4">
             {
                 techList.map((tech: string) => {
                     return (
-                        <li class="py-1 px-3 text-sm rounded-3xl transition-all duration-150 ease-in-out dark:group-hover:bg-amber-800/60 dark:bg-amber-800/30 dark:text-amber-100/80 dark:group-hover:text-amber-100">
+                        <li class="py-1 px-3 text-xs text-violet-800 rounded-3xl transition-all duration-150 ease-in-out sm:text-sm bg-violet-300/30 dark:group-hover:bg-amber-800/60 dark:bg-amber-800/30 dark:text-amber-100/80 dark:group-hover:text-amber-100 group-hover:bg-violet-300/60">
                             {tech}
                         </li>
                     );

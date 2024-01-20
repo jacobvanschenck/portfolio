@@ -9,14 +9,17 @@ const { label, link, class: className, ...props } = Astro.props;
 ---
 
 <a
-    class:list={[className, 'text-lg hover:text-amber-500 group']}
+    class:list={[
+        className,
+        'sm:text-lg hover:text-violet-600 hover:dark:text-amber-500 group font-bold',
+    ]}
     href={link}
     target="_blank"
     {...props}
 >
     {label}
     <div
-        class="mt-1 h-1 bg-amber-500 transition-transform duration-100 scale-x-0 group-hover:scale-x-100"
+        class="mt-1 h-1 bg-violet-600 transition-transform duration-100 scale-x-0 dark:bg-amber-500 group-hover:scale-x-100"
     >
     </div>
 </a>

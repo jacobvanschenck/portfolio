@@ -1,5 +1,5 @@
 <button
-    class="flex gap-2 items-center py-2 px-4 rounded-full bg-slate-100 dark:bg-slate-700"
+    class="flex gap-2 items-center py-2 px-4 rounded-full transition-transform duration-150 hover:scale-95 group bg-slate-200 dark:bg-slate-700 active:enabled:bg-slate-300 active:enabled:dark:bg-slate-800 active:enabled:scale-90"
     @click="darkMode = !darkMode"
     aria-label="Dark mode toggle"
 >
@@ -9,7 +9,7 @@
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        class="w-5 h-5 fill-slate-800 stroke-slate-800 dark:fill-amber-500 dark:stroke-amber-500"
+        class="w-5 h-5 transition-all duration-150 group-active:fill-amber-800 group-active:stroke-amber-800 fill-slate-800 stroke-slate-800 group-active:dark:fill-amber-800 group-active:dark:stroke-amber-800 dark:fill-amber-500 dark:stroke-amber-500"
     >
         <path
             stroke-linecap="round"
@@ -22,7 +22,7 @@
         fill="none"
         viewBox="0 0 24 24"
         stroke-width="1.5"
-        class="w-6 h-6 fill-amber-500 stroke-amber-500 dark:stroke-slate-800 dark:fill-slate-800"
+        class="w-6 h-6 transition-all duration-150 group-active:fill-amber-800 group-active:stroke-amber-800 fill-amber-500 stroke-amber-500 group-active:dark:fill-amber-800 group-active:dark:stroke-amber-800 dark:stroke-slate-800 dark:fill-slate-800"
     >
         <path
             stroke-linecap="round"
