@@ -5,13 +5,14 @@ export interface Props {
     class: string;
 }
 
-const { label, link, class: className } = Astro.props;
+const { label, link, class: className, ...props } = Astro.props;
 ---
 
 <a
     class:list={[className, 'text-lg hover:text-amber-500 group']}
     href={link}
     target="_blank"
+    {...props}
 >
     {label}
     <div

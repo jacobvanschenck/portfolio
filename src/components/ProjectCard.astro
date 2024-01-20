@@ -7,17 +7,20 @@ export interface Props {
     description: string;
 }
 
-const { imgSrc, techList, projectTitle, siteLink, description } = Astro.props;
+const { imgSrc, techList, projectTitle, siteLink, description, ...props } =
+    Astro.props;
 ---
 
 <a
     href={siteLink}
     target="_blank"
     class="flex flex-col-reverse gap-8 p-8 rounded-lg transition-all duration-150 ease-in-out cursor-pointer md:flex-row group dark:hover:bg-slate-700/50"
+    {...props}
 >
     <img
         src={imgSrc}
         class="object-cover object-top w-80 rounded-lg border-2 transition-all duration-150 ease-in-out border-slate-700 aspect-video group-hover:border-slate-600"
+        alt={'Screen shot of ' + projectTitle}
     />
     <div class="flex flex-col gap-4">
         <div class="flex gap-2 items-center">
