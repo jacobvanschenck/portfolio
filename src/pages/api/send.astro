@@ -13,7 +13,7 @@ if (Astro.request.method === 'POST') {
             console.log('ohhhhh');
             return new Response(
                 JSON.stringify({ message: 'missing required fields' }),
-                { status: 422 }
+                { status: 422 },
             );
         }
 
