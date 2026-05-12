@@ -48,8 +48,18 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                             workflows, and polished user experiences. I turn
                             complex product domains into reliable systems that
                             are clear for teams to extend and useful for the
-                            people relying on them. Check out my&nbsp;
+                            people relying on them. Check out my work on&nbsp;
                             <a
+                                class="font-bold text-violet-600 dark:text-amber-500 group"
+                                href="#bunches"
+                                aria-label="Bunches"
+                            >
+                                Bunches
+                                <div
+                                    class="mt-1 h-1 bg-violet-600 transition-transform duration-100 scale-x-0 dark:bg-amber-500 group-hover:scale-x-100"
+                                >
+                                </div>
+                            </a>&nbsp;or my&nbsp;<a
                                 class="font-bold text-violet-600 dark:text-amber-500 group"
                                 href="#projects"
                                 aria-label="side projects"
@@ -65,13 +75,101 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                     <Terminal />
                 </section>
                 <section
+                    id="bunches"
+                    class="flex flex-col gap-8 justify-center px-8 pt-16 w-full min-h-screen max-w-[1300px]"
+                >
+                    <h2 class="text-3xl font-black sm:text-5xl lg:text-5xl">
+                        Bunches
+                    </h2>
+                    <div
+                        class="grid overflow-hidden gap-8 p-6 rounded-2xl border transition-all duration-150 sm:p-8 border-slate-300 bg-slate-100/60 lg:grid-cols-[1.1fr_0.9fr] dark:border-slate-600 dark:bg-slate-800/50 dark:hover:border-amber-500/50 hover:border-violet-500/50"
+                    >
+                        <div class="flex flex-col gap-5 justify-center">
+                            <p
+                                class="text-sm font-bold text-violet-600 uppercase dark:text-amber-500 tracking-[0.2em]"
+                            >
+                                Frontend Engineering
+                            </p>
+                            <h3
+                                class="text-2xl font-black leading-tight sm:text-4xl text-slate-800 dark:text-slate-50"
+                            >
+                                Building the mobile-first social layer for sports
+                                communities and onchain token-powered interactions.
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-300">
+                                I was the primary engineer behind the Capacitor
+                                Bunches client app and the REP token ecosystem,
+                                spanning real-time chat, GraphQL, native mobile
+                                flows, wallet UX, and gasless onchain actions.
+                            </p>
+                            <ul class="flex flex-wrap gap-2">
+                                {
+                                    [
+                                        '485 app commits',
+                                        'Real-time chat',
+                                        'GraphQL platform',
+                                        'Capacitor app',
+                                        'REP token UX',
+                                    ].map((item) => (
+                                        <li class="py-1 px-3 text-xs text-violet-800 rounded-3xl sm:text-sm bg-violet-300/40 dark:bg-amber-800/40 dark:text-amber-100/90">
+                                            {item}
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                            <a
+                                href="/bunches/"
+                                class="flex gap-2 items-center self-start font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+                            >
+                                View case study
+                                <span
+                                    class="transition-transform duration-150 group-hover:translate-x-1"
+                                    >{'->'}</span
+                                >
+                            </a>
+                        </div>
+                        <div
+                            class="grid gap-3 p-4 rounded-xl border shadow-xl border-slate-300 bg-slate-950 text-slate-100 dark:border-slate-600"
+                        >
+                            <div class="flex gap-2 items-center text-xs text-slate-400">
+                                <span class="w-3 h-3 bg-red-400 rounded-full"></span>
+                                <span class="w-3 h-3 bg-amber-400 rounded-full"></span>
+                                <span class="w-3 h-3 bg-emerald-400 rounded-full"></span>
+                                <span class="ml-auto">Bunches / Capacitor</span>
+                            </div>
+                            <div class="grid gap-3 sm:grid-cols-2">
+                                <div class="p-4 rounded-lg bg-slate-900">
+                                    <p class="text-xs text-amber-300">Realtime</p>
+                                    <p class="mt-2 text-2xl font-black">Chat</p>
+                                    <p class="text-sm text-slate-400">threads · reactions</p>
+                                </div>
+                                <div class="p-4 rounded-lg bg-slate-900">
+                                    <p class="text-xs text-violet-300">REP</p>
+                                    <p class="mt-2 text-2xl font-black">23B</p>
+                                    <p class="text-sm text-slate-400">capped token system</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-3 p-4 rounded-lg bg-slate-900">
+                                <div class="max-w-[85%] rounded-2xl rounded-bl-sm bg-violet-600 p-3 text-sm">
+                                    New pick is live. Claim REP before kickoff.
+                                </div>
+                                <div
+                                    class="self-end max-w-[85%] rounded-2xl rounded-br-sm bg-slate-700 p-3 text-sm"
+                                >
+                                    Shared to the bunch and pushed to mobile.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section
                     id="projects"
                     class="flex flex-col justify-center pt-16 min-h-screen sm:gap-8 max-w-[1300px]"
                 >
                     <h2
                         class="pl-8 text-3xl font-black sm:text-5xl lg:text-5xl"
                     >
-                        Projects
+                        Side Projects
                     </h2>
                     <div
                         class="flex flex-col transition-all duration-150 sm:gap-16"

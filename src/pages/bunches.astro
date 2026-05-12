@@ -1,0 +1,215 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Bunches | Jacob Van Schenck';
+const description =
+    'Product engineering case study for Bunches Capacitor, a mobile-first social app with real-time chat, native mobile flows, GraphQL infrastructure, and REP token interactions.';
+
+const contributions = [
+    'Led the Capacitor client from early Turborepo scaffolding into a production-grade mobile/web app, authoring 485 commits in the monorepo.',
+    'Built real-time bunch chat with Phoenix channels, optimistic updates, message history, edits, deletes, reactions, threads, and Zod validation.',
+    'Shaped the typed GraphQL and Apollo data layer with reusable fragments, generated TypeScript types, mutations, subscriptions, and targeted cache updates.',
+    'Integrated native mobile flows through Capacitor, including Android delivery, push notifications, deep links, media, sharing, haptics, and cloud settings.',
+    'Designed and implemented the REP token ecosystem, wallet UX, EIP-712 signing, meta-transactions, and gasless onchain interaction patterns.',
+];
+
+const technologies = [
+    'React / Next.js',
+    'TypeScript',
+    'Capacitor',
+    'Apollo / GraphQL',
+    'Phoenix channels',
+    'Zustand',
+    'Solidity / REP',
+    'viem / wagmi / ethers',
+];
+---
+
+<!DOCTYPE html>
+<html
+    lang="en"
+    x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
+    x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
+    x-bind:class="{ 'dark': darkMode }"
+    class="scroll-smooth"
+>
+    <head>
+        <BaseHead title={title} description={description} />
+    </head>
+    <body
+        class="bg-gradient-to-br to-slate-300 from-slate-50 text-slate-800 dark:from-slate-900 dark:to-slate-700 dark:text-slate-50"
+    >
+        <div class="w-full">
+            <Header />
+            <main class="flex flex-col gap-20 px-8 pt-32 mx-auto w-full max-w-[1000px]">
+                <section class="flex flex-col gap-8">
+                    <a
+                        href="/#bunches"
+                        class="flex gap-2 items-center self-start font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+                    >
+                        <span
+                            class="transition-transform duration-150 group-hover:-translate-x-1"
+                            >{'<-'}</span
+                        >
+                        Back to Bunches
+                    </a>
+                    <div class="flex flex-col gap-5">
+                        <p
+                            class="text-sm font-bold text-violet-600 uppercase dark:text-amber-500 tracking-[0.2em]"
+                        >
+                            Product Engineering Case Study
+                        </p>
+                        <h1 class="text-4xl font-black leading-tight sm:text-6xl">
+              Bunches. Chat Sports.
+                        </h1>
+                        <p class="max-w-3xl text-lg text-slate-600 dark:text-slate-300">
+                            A mobile-first social app for sports communities with
+                            real-time chat, group discovery, direct messages,
+                            rewards, picks, native mobile flows, and REP-powered
+                            onchain interactions.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+                    <h2 class="text-3xl font-black">Overview</h2>
+                    <div class="flex flex-col gap-4 text-slate-600 dark:text-slate-300">
+                        <p>
+                            Bunches needed a community product where fans could
+                            join groups, chat in real time, share content, receive
+                            notifications, make picks, earn rewards, and use REP
+                            without being exposed to raw wallet or transaction
+                            complexity.
+                        </p>
+                        <p>
+                            I was the primary engineer behind the Capacitor client app
+                            and REP ecosystem, connecting product surfaces to
+                            realtime messaging, typed GraphQL data, native mobile
+                            APIs, non-custodial wallet persistence, and gasless
+                            onchain flows.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+                        <h2 class="text-3xl font-black">Impact</h2>
+                    <ul class="grid gap-3">
+                        {
+                            contributions.map((item) => (
+                                <li class="p-4 rounded-xl border border-slate-300 bg-slate-100/60 dark:border-slate-600 dark:bg-slate-800/50">
+                                    {item}
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </section>
+
+                <section class="flex flex-col gap-8">
+                    <div class="flex flex-col gap-3">
+                        <h2 class="text-3xl font-black">Representative Product Areas</h2>
+                        <p class="text-slate-600 dark:text-slate-300">
+                            Representative panels show the major product surfaces
+                            without representing final Bunches screenshots.
+                        </p>
+                    </div>
+                    <div class="grid gap-5 md:grid-cols-2">
+                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
+                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
+                                Bunch Chat
+                            </p>
+                            <div class="p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
+                                <div class="flex justify-between items-center">
+                                    <span>messages</span>
+                                    <span class="text-3xl font-black">live</span>
+                                </div>
+                                <div class="flex justify-between items-center mt-3">
+                                    <span>reactions</span>
+                                    <span class="text-3xl font-black">fast</span>
+                                </div>
+                                <p class="mt-4 text-sm text-slate-400">Phoenix channels · optimistic state</p>
+                            </div>
+                        </div>
+                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
+                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
+                                Mobile Entry Points
+                            </p>
+                            <div class="flex flex-col gap-3 p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
+                                <div class="max-w-[85%] rounded-2xl rounded-bl-sm bg-violet-600 p-3 text-sm">
+                                    Push opened the right bunch thread.
+                                </div>
+                                <div class="self-end max-w-[85%] rounded-2xl rounded-br-sm bg-slate-700 p-3 text-sm">
+                                    Branch link joined the invite flow.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
+                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
+                                GraphQL Data Layer
+                            </p>
+                            <div class="p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
+                                <p class="text-sm text-slate-400">typed fragments</p>
+                                <p class="mt-2 font-bold">
+                                    Generated types, subscriptions, cache updates,
+                                    and optimistic UI for high-frequency social
+                                    interactions.
+                                </p>
+                                <div class="flex gap-4 mt-4 text-sm text-slate-400">
+                                    <span>Apollo cache</span>
+                                    <span>Zustand state</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
+                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
+                                REP Token UX
+                            </p>
+                            <div class="p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
+                                <p class="text-sm text-slate-400">capped token supply</p>
+                                <p class="mt-2 text-4xl font-black">23B</p>
+                                <p class="mt-4 text-sm text-emerald-300">
+                                    EIP-712 signatures and gasless transaction flows
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+                    <h2 class="text-3xl font-black">Tech & Constraints</h2>
+                    <div class="flex flex-col gap-5">
+                        <ul class="flex flex-wrap gap-2">
+                            {
+                                technologies.map((tech) => (
+                                    <li class="py-1 px-3 text-xs text-violet-800 rounded-3xl sm:text-sm bg-violet-300/40 dark:bg-amber-800/40 dark:text-amber-100/90">
+                                        {tech}
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                        <p class="text-slate-600 dark:text-slate-300">
+                            The key engineering challenge was coordinating native
+                            mobile behavior, web rendering, realtime messaging,
+                            GraphQL server state, local interaction state, wallet
+                            recovery, signed transactions, analytics, observability,
+                            and release workflows across a multi-package app.
+                        </p>
+                    </div>
+                </section>
+
+                <a
+                    href="/#bunches"
+                    class="flex gap-2 items-center self-start pb-20 font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+                >
+                    <span
+                        class="transition-transform duration-150 group-hover:-translate-x-1"
+                        >{'<-'}</span
+                    >
+                    Back to Bunches
+                </a>
+            </main>
+            <Footer />
+        </div>
+    </body>
+</html>
