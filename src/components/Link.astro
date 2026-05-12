@@ -2,7 +2,7 @@
 export interface Props {
     label: string;
     link: string;
-    class: string;
+    class?: string;
 }
 
 const { label, link, class: className, ...props } = Astro.props;

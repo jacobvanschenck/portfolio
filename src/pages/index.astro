@@ -42,9 +42,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                     </h1>
                     <div class="flex font-sans">
                         <p>
-                            I am a software engineer with a passion for web3
-                            technoloy. I build clean, performant solutions that
-                            are a delight for users. Check out my&nbsp;
+                            I am a full-stack software engineer focused on
+                            building scalable product platforms across backend
+                            architecture, public APIs, permissions, admin
+                            workflows, and polished user experiences. I turn
+                            complex product domains into reliable systems that
+                            are clear for teams to extend and useful for the
+                            people relying on them. Check out my&nbsp;
                             <a
                                 class="font-bold text-violet-600 dark:text-amber-500 group"
                                 href="#projects"
@@ -72,6 +76,20 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                     <div
                         class="flex flex-col transition-all duration-150 sm:gap-16"
                     >
+            <ProjectCard
+              imgSrc={'/TsunamiTrades.png'}
+              techList={[
+                'React',
+                'TailwindCSS',
+                'Solidity',
+                'HardHat',
+                'Viem',
+              ]}
+              projectTitle={'MyDex'}
+              siteLink="https://dex-vs.netlify.app/"
+              githubLink="https://github.com/jacobvanschenck/tsunami-trades"
+              description="A web3 trading platform to create Market Orders and Limit Orders for ERC-20 coins."
+            />
                         <ProjectCard
                             imgSrc={'/turbo-runners.png'}
                             techList={[
@@ -85,34 +103,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                             githubLink="https://github.com/jacobvanschenck/turbo-runners"
                             description="An NFT Minting site for an ERC-721a token. This NFT includes Whitelisting address for early minting, Royalties on mint and transfer, and delayed art reveal dates."
                         />
-                        <ProjectCard
-                            imgSrc={'/TsunamiTrades.png'}
-                            techList={[
-                                'React',
-                                'TailwindCSS',
-                                'Solidity',
-                                'HardHat',
-                                'Viem',
-                            ]}
-                            projectTitle={'MyDex'}
-                            siteLink="https://dex-vs.netlify.app/"
-                            githubLink="https://github.com/jacobvanschenck/tsunami-trades"
-                            description="A web3 trading platform to create Market Orders and Limit Orders for ERC-20 coins."
-                        />
-                        <ProjectCard
-                            imgSrc={'/MultisigWallet.png'}
-                            techList={[
-                                'React',
-                                'TailwindCSS',
-                                'Solidity',
-                                'HardHat',
-                                'Viem',
-                            ]}
-                            projectTitle={'MultiSig Wallet'}
-                            siteLink="https://multi-sig-wallet-vs.netlify.app/"
-                            githubLink="https://github.com/jacobvanschenck/Multisig-Wallet"
-                            description="A smart contract wallet that requires approval from 2 designated addresses to complete transactions"
-                        />
+                        
                     </div>
                 </section>
                 <section
