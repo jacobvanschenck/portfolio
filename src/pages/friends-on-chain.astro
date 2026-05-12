@@ -1,0 +1,216 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Friends on Chain | Jacob Van Schenck';
+const description =
+    'Product engineering case study for Friends on Chain, a Bunches Web3 growth prototype with wallet connection, friend identity entry, NFT preview generation, onchain minting, backend upload, and sharing.';
+
+const contributions = [
+    'Built the Friends on Chain app as the solo engineer, authoring 318 commits across the React product surface.',
+    'Implemented the wallet-connected mint flow with RainbowKit, wagmi, ethers, gas estimation, transaction submission, and contract event handling.',
+    'Created the dynamic NFT preview renderer with friend cards, customization, responsive sizing, and DOM-to-image generation.',
+    'Connected generated NFT assets to the Bunches backend upload pipeline with owner address, friend addresses, image data, and token ID.',
+    'Improved reliability across rejected wallet requests, invalid identities, network changes, duplicate actions, image generation failures, and upload errors.',
+];
+
+const technologies = [
+    'React 18',
+    'JavaScript',
+    'Tailwind CSS',
+    'Zustand',
+    'RainbowKit',
+    'wagmi',
+    'ethers',
+    'html-to-image',
+    'Headless UI',
+    'Lottie',
+];
+---
+
+<!DOCTYPE html>
+<html
+    lang="en"
+    x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
+    x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
+    x-bind:class="{ 'dark': darkMode }"
+    class="scroll-smooth"
+>
+    <head>
+        <BaseHead title={title} description={description} />
+    </head>
+    <body
+        class="bg-gradient-to-br to-slate-300 from-slate-50 text-slate-800 dark:from-slate-900 dark:to-slate-700 dark:text-slate-50"
+    >
+        <div class="w-full">
+            <Header />
+            <main class="flex flex-col gap-20 px-8 pt-32 mx-auto w-full max-w-[1000px]">
+                <section class="flex flex-col gap-8">
+                    <a
+                        href="/#friends-on-chain"
+                        class="flex gap-2 items-center self-start font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+                    >
+                        <span
+                            class="transition-transform duration-150 group-hover:-translate-x-1"
+                            >{'<-'}</span
+                        >
+                        Back to Friends on Chain
+                    </a>
+                    <div class="flex flex-col gap-5">
+                        <p
+                            class="text-sm font-bold text-violet-600 uppercase dark:text-amber-500 tracking-[0.2em]"
+                        >
+                            Web3 Product Engineering Case Study
+                        </p>
+                        <h1 class="text-4xl font-black leading-tight sm:text-6xl">
+                            Friends on Chain
+                        </h1>
+                        <p class="max-w-3xl text-lg text-slate-600 dark:text-slate-300">
+                            A Bunches growth experiment for turning a user's friend
+                            graph into a shareable, mintable social NFT, built from
+                            wallet connection through onchain minting and backend
+                            asset upload.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+                    <h2 class="text-3xl font-black">Overview</h2>
+                    <div class="flex flex-col gap-4 text-slate-600 dark:text-slate-300">
+                        <p>
+                            Friends on Chain needed to hide Web3 complexity behind a
+                            consumer product flow: connect a wallet, add friends by
+                            wallet address or Web3 identity, personalize the visual
+                            output, preview the NFT, mint it, upload the generated
+                            image, and share the result.
+                        </p>
+                        <p>
+                            I was the solo engineer working with a PM on product
+                            direction, UX tradeoffs, copy, responsive behavior, and
+                            iteration. The work connected React architecture, wallet
+                            UX, smart-contract interaction, image generation,
+                            backend integration, and reliability into one flow.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+                    <h2 class="text-3xl font-black">Impact</h2>
+                    <ul class="grid gap-3">
+                        {
+                            contributions.map((item) => (
+                                <li class="p-4 rounded-xl border border-slate-300 bg-slate-100/60 dark:border-slate-600 dark:bg-slate-800/50">
+                                    {item}
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </section>
+
+                <section class="flex flex-col gap-8">
+                    <div class="flex flex-col gap-3">
+                        <h2 class="text-3xl font-black">Representative Product Areas</h2>
+                        <p class="text-slate-600 dark:text-slate-300">
+                            Representative panels show the major product surfaces
+                            without representing final Friends on Chain screenshots.
+                        </p>
+                    </div>
+                    <div class="grid gap-5 md:grid-cols-2">
+                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
+                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
+                                Wallet And Minting
+                            </p>
+                            <div class="p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
+                                <div class="flex justify-between items-center">
+                                    <span>transaction</span>
+                                    <span class="text-3xl font-black">ready</span>
+                                </div>
+                                <div class="flex justify-between items-center mt-3">
+                                    <span>token id</span>
+                                    <span class="text-3xl font-black">event</span>
+                                </div>
+                                <p class="mt-4 text-sm text-slate-400">RainbowKit · wagmi · ethers</p>
+                            </div>
+                        </div>
+                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
+                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
+                                Friend Identity Entry
+                            </p>
+                            <div class="flex flex-col gap-3 p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
+                                <div class="rounded-2xl bg-violet-600 p-3 text-sm">
+                                    Add by wallet address, ENS, Lens, or Unstoppable Domain.
+                                </div>
+                                <div class="rounded-2xl bg-slate-700 p-3 text-sm">
+                                    Validate input, prevent duplicates, and support query-prefilled friends.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
+                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
+                                NFT Preview Renderer
+                            </p>
+                            <div class="p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
+                                <div class="grid grid-cols-3 gap-2">
+                                    <div class="aspect-square rounded-xl bg-violet-600 p-2 text-xs font-bold">emoji</div>
+                                    <div class="aspect-square rounded-xl bg-amber-500 p-2 text-xs font-bold text-slate-950">crop</div>
+                                    <div class="aspect-square rounded-xl bg-emerald-500 p-2 text-xs font-bold text-slate-950">color</div>
+                                </div>
+                                <p class="mt-4 text-sm text-slate-400">
+                                    Dynamic friend cards converted from DOM to high-resolution PNG.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
+                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
+                                Upload And Share Flow
+                            </p>
+                            <div class="p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
+                                <p class="text-sm text-slate-400">Merlot backend upload</p>
+                                <p class="mt-2 font-bold">
+                                    Owner address, friend addresses, generated image,
+                                    and token ID were sent after minting so the user
+                                    could share the final NFT result.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+                    <h2 class="text-3xl font-black">Tech & Constraints</h2>
+                    <div class="flex flex-col gap-5">
+                        <ul class="flex flex-wrap gap-2">
+                            {
+                                technologies.map((tech) => (
+                                    <li class="py-1 px-3 text-xs text-violet-800 rounded-3xl sm:text-sm bg-violet-300/40 dark:bg-amber-800/40 dark:text-amber-100/90">
+                                        {tech}
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                        <p class="text-slate-600 dark:text-slate-300">
+                            The key engineering challenge was coordinating wallet
+                            connection state, Web3 identity resolution, local NFT
+                            customization state, DOM image generation, contract
+                            transaction lifecycle, backend upload, responsive layout,
+                            and clear user feedback across failure-prone paths.
+                        </p>
+                    </div>
+                </section>
+
+                <a
+                    href="/#friends-on-chain"
+                    class="flex gap-2 items-center self-start pb-20 font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+                >
+                    <span
+                        class="transition-transform duration-150 group-hover:-translate-x-1"
+                        >{'<-'}</span
+                    >
+                    Back to Friends on Chain
+                </a>
+            </main>
+            <Footer />
+        </div>
+    </body>
+</html>

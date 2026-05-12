@@ -48,13 +48,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                             workflows, and polished user experiences. I turn
                             complex product domains into reliable systems that
                             are clear for teams to extend and useful for the
-                            people relying on them. Check out my work on&nbsp;
+                            people relying on them. Check out my&nbsp;
                             <a
                                 class="font-bold text-violet-600 dark:text-amber-500 group"
                                 href="#bunches"
-                                aria-label="Bunches"
+                                aria-label="selected work"
                             >
-                                Bunches
+                                selected work
                                 <div
                                     class="mt-1 h-1 bg-violet-600 transition-transform duration-100 scale-x-0 dark:bg-amber-500 group-hover:scale-x-100"
                                 >
@@ -162,6 +162,101 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                         </div>
                     </div>
                 </section>
+                <section
+                    id="friends-on-chain"
+                    class="flex flex-col gap-8 justify-center px-8 pt-16 w-full min-h-screen max-w-[1300px]"
+                >
+                    <h2 class="text-3xl font-black sm:text-5xl lg:text-5xl">
+                        Friends on Chain
+                    </h2>
+                    <div
+                        class="grid overflow-hidden gap-8 p-6 rounded-2xl border transition-all duration-150 sm:p-8 border-slate-300 bg-slate-100/60 lg:grid-cols-[0.95fr_1.05fr] dark:border-slate-600 dark:bg-slate-800/50 dark:hover:border-amber-500/50 hover:border-violet-500/50"
+                    >
+                        <div class="flex flex-col gap-5 justify-center">
+                            <p
+                                class="text-sm font-bold text-violet-600 uppercase dark:text-amber-500 tracking-[0.2em]"
+                            >
+                                Web3 Product Engineering
+                            </p>
+                            <h3
+                                class="text-2xl font-black leading-tight sm:text-4xl text-slate-800 dark:text-slate-50"
+                            >
+                                Solo engineering a wallet-connected social NFT minting flow for Bunches.
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-300">
+                                I built Friends on Chain end-to-end, spanning wallet
+                                connection, friend identity entry, NFT preview
+                                rendering, image generation, smart-contract minting,
+                                backend upload, and share navigation.
+                            </p>
+                            <ul class="flex flex-wrap gap-2">
+                                {
+                                    [
+                                        '318 commits',
+                                        'Solo engineer',
+                                        'NFT mint flow',
+                                        'Wallet UX',
+                                        'Image generation',
+                                    ].map((item) => (
+                                        <li class="py-1 px-3 text-xs text-violet-800 rounded-3xl sm:text-sm bg-violet-300/40 dark:bg-amber-800/40 dark:text-amber-100/90">
+                                            {item}
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                            <a
+                                href="/friends-on-chain/"
+                                class="flex gap-2 items-center self-start font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+                            >
+                                View case study
+                                <span
+                                    class="transition-transform duration-150 group-hover:translate-x-1"
+                                    >{'->'}</span
+                                >
+                            </a>
+                        </div>
+                        <div
+                            class="grid gap-3 p-4 rounded-xl border shadow-xl border-slate-300 bg-slate-950 text-slate-100 dark:border-slate-600"
+                        >
+                            <div class="flex gap-2 items-center text-xs text-slate-400">
+                                <span class="w-3 h-3 bg-red-400 rounded-full"></span>
+                                <span class="w-3 h-3 bg-amber-400 rounded-full"></span>
+                                <span class="w-3 h-3 bg-emerald-400 rounded-full"></span>
+                                <span class="ml-auto">Friends on Chain</span>
+                            </div>
+                            <div class="grid gap-3 sm:grid-cols-[0.9fr_1.1fr]">
+                                <div class="p-4 rounded-lg bg-slate-900">
+                                    <p class="text-xs text-amber-300">wallet</p>
+                                    <p class="mt-2 text-2xl font-black">Connected</p>
+                                    <p class="text-sm text-slate-400">RainbowKit · wagmi</p>
+                                </div>
+                                <div class="p-4 rounded-lg bg-slate-900">
+                                    <p class="text-xs text-violet-300">friends</p>
+                                    <p class="mt-2 text-2xl font-black">ENS · Lens</p>
+                                    <p class="text-sm text-slate-400">address lookup and validation</p>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-lg bg-slate-900">
+                                <div class="grid grid-cols-3 gap-2">
+                                    <div class="aspect-square rounded-xl bg-violet-600 p-2 text-xs font-bold">
+                                        gm
+                                    </div>
+                                    <div class="aspect-square rounded-xl bg-amber-500 p-2 text-xs font-bold text-slate-950">
+                                        fren
+                                    </div>
+                                    <div class="aspect-square rounded-xl bg-emerald-500 p-2 text-xs font-bold text-slate-950">
+                                        mint
+                                    </div>
+                                </div>
+                                <div class="mt-4 flex items-center justify-between rounded-xl border border-slate-700 p-3">
+                                    <span class="text-sm text-slate-400">NFT preview</span>
+                                    <span class="font-black">Generate PNG</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <section
                     id="projects"
                     class="flex flex-col justify-center pt-16 min-h-screen sm:gap-8 max-w-[1300px]"
