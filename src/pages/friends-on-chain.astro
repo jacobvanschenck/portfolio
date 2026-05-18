@@ -32,21 +32,37 @@ const productScreens = [
     {
         title: 'Mobile Get Started',
         src: '/friends-on-chain/friends-on-chain-get-started-mobile.png',
+        webpSrc: '/friends-on-chain/friends-on-chain-get-started-mobile-742.webp',
+        srcSet: '/friends-on-chain/friends-on-chain-get-started-mobile-480.webp 480w, /friends-on-chain/friends-on-chain-get-started-mobile-742.webp 742w',
+        width: 742,
+        height: 1594,
         alt: 'Friends on Chain mobile get started screen',
     },
     {
         title: 'Mobile Add Friends',
         src: '/friends-on-chain/friends-on-chain-add-friend-mobile.png',
+        webpSrc: '/friends-on-chain/friends-on-chain-add-friend-mobile-742.webp',
+        srcSet: '/friends-on-chain/friends-on-chain-add-friend-mobile-480.webp 480w, /friends-on-chain/friends-on-chain-add-friend-mobile-742.webp 742w',
+        width: 738,
+        height: 1600,
         alt: 'Friends on Chain mobile add friend screen',
     },
     {
         title: 'Mobile Edit Card',
         src: '/friends-on-chain/friends-on-chain-edit-card-mobile.png',
+        webpSrc: '/friends-on-chain/friends-on-chain-edit-card-mobile-742.webp',
+        srcSet: '/friends-on-chain/friends-on-chain-edit-card-mobile-480.webp 480w, /friends-on-chain/friends-on-chain-edit-card-mobile-742.webp 742w',
+        width: 742,
+        height: 1594,
         alt: 'Friends on Chain mobile card editing screen',
     },
     {
         title: 'Mobile Share Result',
         src: '/friends-on-chain/friends-on-chain-share-mobile.png',
+        webpSrc: '/friends-on-chain/friends-on-chain-share-mobile-742.webp',
+        srcSet: '/friends-on-chain/friends-on-chain-share-mobile-480.webp 480w, /friends-on-chain/friends-on-chain-share-mobile-742.webp 742w',
+        width: 742,
+        height: 1594,
         alt: 'Friends on Chain mobile sharing screen after minting',
     },
 ];
@@ -142,9 +158,13 @@ const productScreens = [
                     <div class="grid gap-5 md:grid-cols-2">
                         <figure class="overflow-hidden rounded-2xl border border-slate-300 bg-slate-100/70 shadow-xl dark:border-slate-600 dark:bg-slate-800/60 md:col-span-2">
                             <img
-                                src="/friends-on-chain/friends-on-chain-mint-desktop.png"
+                                src="/friends-on-chain/friends-on-chain-mint-desktop-1200.webp"
+                                srcset="/friends-on-chain/friends-on-chain-mint-desktop-1200.webp 1200w, /friends-on-chain/friends-on-chain-mint-desktop-1800.webp 1800w"
+                                sizes="(min-width: 768px) 936px, calc(100vw - 64px)"
                                 alt="Friends on Chain desktop minting screen"
                                 class="w-full"
+                                width="2990"
+                                height="1788"
                                 loading="lazy"
                             />
                             <figcaption class="px-4 py-3 text-sm font-bold text-violet-600 dark:text-amber-500">
@@ -155,9 +175,13 @@ const productScreens = [
                             productScreens.map((screen) => (
                                 <figure class="overflow-hidden rounded-2xl border border-slate-300 bg-slate-100/70 shadow-xl dark:border-slate-600 dark:bg-slate-800/60">
                                     <img
-                                        src={screen.src}
+                                        src={screen.webpSrc}
+                                        srcset={screen.srcSet}
+                                        sizes="(min-width: 768px) 458px, calc(100vw - 64px)"
                                         alt={screen.alt}
                                         class="w-full"
+                                        width={screen.width}
+                                        height={screen.height}
                                         loading="lazy"
                                     />
                                     <figcaption class="px-4 py-3 text-sm font-bold text-violet-600 dark:text-amber-500">
