@@ -1,0 +1,212 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Overflow | Jacob Van Schenck';
+const description =
+    'Full-stack platform engineering case study for Overflow, a nonprofit giving platform with public APIs, donor flows, nonprofit admin tooling, permissions, reporting, reconciliation, and developer tooling.';
+
+const contributions = [
+    'Authored 286 non-merge commits across 233 ticket references, touching backend services, frontend apps, shared types, design system components, tests, and tooling.',
+    'Expanded Overflow public API capabilities across donor profiles, payment methods, contributions, campaigns, subscriptions, one-time charges, response semantics, filters, and typed metadata.',
+    'Helped deliver location-aware giving, reporting, exports, dashboard access control, and reusable permission abstractions for nonprofit admins.',
+    'Built and refined nonprofit dashboard workflows for locations, funds, subfunds, API keys, user management, settings, giving links, pledge campaigns, gift entry, and reconciliation.',
+    'Strengthened backend architecture with CQRS handlers, domain events, saga error handling, queue-backed jobs, repository filtering, test coverage, and type-safety improvements.',
+];
+
+const technologies = [
+    'TypeScript',
+    'NestJS',
+    'React / Next.js',
+    'CQRS',
+    'Domain events',
+    'Job queues',
+    'OpenAPI',
+    'AntD',
+    'Biome',
+];
+---
+
+<!DOCTYPE html>
+<html
+    lang="en"
+    x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
+    x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
+    x-bind:class="{ 'dark': darkMode }"
+    class="scroll-smooth"
+>
+    <head>
+        <BaseHead title={title} description={description} />
+    </head>
+    <body
+        class="bg-gradient-to-br to-slate-300 from-slate-50 text-slate-800 dark:from-slate-900 dark:to-slate-700 dark:text-slate-50"
+    >
+        <div class="w-full">
+            <Header />
+            <main class="flex flex-col gap-20 px-8 pt-32 mx-auto w-full max-w-[1000px]">
+                <section class="flex flex-col gap-8">
+                    <a
+                        href="/#overflow"
+                        class="flex gap-2 items-center self-start font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+                    >
+                        <span
+                            class="transition-transform duration-150 group-hover:-translate-x-1"
+                            >{'<-'}</span
+                        >
+                        Back to Overflow
+                    </a>
+                    <div class="flex flex-col gap-5">
+                        <p
+                            class="text-sm font-bold text-violet-600 uppercase dark:text-amber-500 tracking-[0.2em]"
+                        >
+                            Full-Stack Platform Engineering Case Study
+                        </p>
+                        <h1 class="text-4xl font-black leading-tight sm:text-6xl">
+                            Overflow
+                        </h1>
+                        <p class="max-w-3xl text-lg text-slate-600 dark:text-slate-300">
+                            A multi-channel nonprofit giving platform that helps
+                            organizations accept and manage donations across cash,
+                            stock, crypto, donor-advised funds, pledges, recurring
+                            giving, roundups, and offline gifts.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+                    <h2 class="text-3xl font-black">Overview</h2>
+                    <div class="flex flex-col gap-4 text-slate-600 dark:text-slate-300">
+                        <p>
+                            Overflow combines donor-facing donation flows,
+                            nonprofit admin tooling, payment processing,
+                            reporting, reconciliation, and third-party integrations
+                            into a unified giving infrastructure platform.
+                        </p>
+                        <p>
+                            I contributed across the TypeScript monorepo, spanning
+                            NestJS backend modules, public API schemas, domain
+                            events, queue-backed jobs, React/Next dashboard
+                            workflows, donor-facing experiences, shared types,
+                            tests, linting, and developer tooling.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+                    <h2 class="text-3xl font-black">Impact</h2>
+                    <ul class="grid gap-3">
+                        {
+                            contributions.map((item) => (
+                                <li class="p-4 rounded-xl border border-slate-300 bg-slate-100/60 dark:border-slate-600 dark:bg-slate-800/50">
+                                    {item}
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </section>
+
+                <section class="flex flex-col gap-8">
+                    <div class="flex flex-col gap-3">
+                        <h2 class="text-3xl font-black">Representative Product Areas</h2>
+                        <p class="text-slate-600 dark:text-slate-300">
+                            Representative panels show the major product and
+                            platform areas without representing final Overflow
+                            screenshots.
+                        </p>
+                    </div>
+                    <div class="grid gap-5 md:grid-cols-2">
+                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
+                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
+                                Public API Platform
+                            </p>
+                            <div class="p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
+                                <div class="flex justify-between items-center">
+                                    <span>donors</span>
+                                    <span class="text-3xl font-black">API</span>
+                                </div>
+                                <div class="flex justify-between items-center mt-3">
+                                    <span>payments</span>
+                                    <span class="text-3xl font-black">typed</span>
+                                </div>
+                                <p class="mt-4 text-sm text-slate-400">OpenAPI · DTOs · response semantics</p>
+                            </div>
+                        </div>
+                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
+                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
+                                Locations And Permissions
+                            </p>
+                            <div class="flex flex-col gap-3 p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
+                                <div class="rounded-2xl bg-violet-600 p-3 text-sm">
+                                    Scope contributions, pledges, exports, reports, and households by accessible locations.
+                                </div>
+                                <div class="rounded-2xl bg-slate-700 p-3 text-sm">
+                                    Replace duplicated controller logic with reusable access-control abstractions.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
+                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
+                                Nonprofit Dashboard
+                            </p>
+                            <div class="p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
+                                <p class="text-sm text-slate-400">settings · users · funds</p>
+                                <p class="mt-2 font-bold">
+                                    Built admin workflows for locations, roles,
+                                    API keys, funds, subfunds, pledge campaigns,
+                                    giving links, gift entry, and reconciliation.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
+                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
+                                Backend Architecture
+                            </p>
+                            <div class="p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
+                                <p class="text-sm text-slate-400">reliability patterns</p>
+                                <p class="mt-2 text-4xl font-black">CQRS</p>
+                                <p class="mt-4 text-sm text-emerald-300">
+                                    Domain events, sagas, queue-backed jobs, repositories, and tests.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+                    <h2 class="text-3xl font-black">Tech & Constraints</h2>
+                    <div class="flex flex-col gap-5">
+                        <ul class="flex flex-wrap gap-2">
+                            {
+                                technologies.map((tech) => (
+                                    <li class="py-1 px-3 text-xs text-violet-800 rounded-3xl sm:text-sm bg-violet-300/40 dark:bg-amber-800/40 dark:text-amber-100/90">
+                                        {tech}
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                        <p class="text-slate-600 dark:text-slate-300">
+                            The key engineering challenge was making complex
+                            nonprofit financial workflows safer and more scalable
+                            across product surfaces: donor checkout, admin tools,
+                            public APIs, permissions, reports, exports,
+                            reconciliation, third-party sync, and background work.
+                        </p>
+                    </div>
+                </section>
+
+                <a
+                    href="/#overflow"
+                    class="flex gap-2 items-center self-start pb-20 font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+                >
+                    <span
+                        class="transition-transform duration-150 group-hover:-translate-x-1"
+                        >{'<-'}</span
+                    >
+                    Back to Overflow
+                </a>
+            </main>
+            <Footer />
+        </div>
+    </body>
+</html>

@@ -52,7 +52,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             
             <a
               class="inline-block font-bold text-violet-600 dark:text-amber-500 group"
-              href="#bunches"
+              href="#overflow"
               aria-label="selected work"
             >
               selected work
@@ -76,6 +76,97 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             </a>
           </p>
                     <Terminal />
+                </section>
+                <section
+                    id="overflow"
+                    class="flex flex-col gap-8 justify-center px-8 pt-16 w-full min-h-screen max-w-[1300px]"
+                >
+                    <h2 class="text-3xl font-black sm:text-5xl lg:text-5xl">
+                        Overflow
+                    </h2>
+                    <div
+                        class="grid overflow-hidden gap-8 p-6 rounded-2xl border transition-all duration-150 sm:p-8 border-slate-300 bg-slate-100/60 lg:grid-cols-[1fr_1fr] dark:border-slate-600 dark:bg-slate-800/50 dark:hover:border-amber-500/50 hover:border-violet-500/50"
+                    >
+                        <div class="flex flex-col gap-5 justify-center">
+                            <p
+                                class="text-sm font-bold text-violet-600 uppercase dark:text-amber-500 tracking-[0.2em]"
+                            >
+                                Full-Stack Platform Engineering
+                            </p>
+                            <h3
+                                class="text-2xl font-black leading-tight sm:text-4xl text-slate-800 dark:text-slate-50"
+                            >
+                                Scaling nonprofit giving infrastructure across APIs, admin tooling, permissions, and donation workflows.
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-300">
+                                I worked across Overflow's TypeScript monorepo,
+                                contributing to backend architecture, public APIs,
+                                donor-facing giving flows, nonprofit dashboard
+                                workflows, location-aware permissions, funds,
+                                reporting, reconciliation, and developer tooling.
+                            </p>
+                            <ul class="flex flex-wrap gap-2">
+                                {
+                                    [
+                                        '286 commits',
+                                        '233 tickets',
+                                        '82k lines changed',
+                                        'Public APIs',
+                                        'Permissions',
+                                    ].map((item) => (
+                                        <li class="py-1 px-3 text-xs text-violet-800 rounded-3xl sm:text-sm bg-violet-300/40 dark:bg-amber-800/40 dark:text-amber-100/90">
+                                            {item}
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                            <a
+                                href="/overflow/"
+                                class="flex gap-2 items-center self-start font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+                            >
+                                View case study
+                                <span
+                                    class="transition-transform duration-150 group-hover:translate-x-1"
+                                    >{'->'}</span
+                                >
+                            </a>
+                        </div>
+                        <div
+                            class="grid gap-3 p-4 rounded-xl border shadow-xl border-slate-300 bg-slate-950 text-slate-100 dark:border-slate-600"
+                        >
+                            <div class="flex gap-2 items-center text-xs text-slate-400">
+                                <span class="w-3 h-3 bg-red-400 rounded-full"></span>
+                                <span class="w-3 h-3 bg-amber-400 rounded-full"></span>
+                                <span class="w-3 h-3 bg-emerald-400 rounded-full"></span>
+                                <span class="ml-auto">Overflow / Platform</span>
+                            </div>
+                            <div class="grid gap-3 sm:grid-cols-2">
+                                <div class="p-4 rounded-lg bg-slate-900">
+                                    <p class="text-xs text-amber-300">API</p>
+                                    <p class="mt-2 text-2xl font-black">Public</p>
+                                    <p class="text-sm text-slate-400">donors · payments · campaigns</p>
+                                </div>
+                                <div class="p-4 rounded-lg bg-slate-900">
+                                    <p class="text-xs text-violet-300">Access</p>
+                                    <p class="mt-2 text-2xl font-black">Scoped</p>
+                                    <p class="text-sm text-slate-400">locations · roles · exports</p>
+                                </div>
+                            </div>
+                            <div class="grid gap-3 p-4 rounded-lg bg-slate-900">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-slate-400">backend</span>
+                                    <span class="text-2xl font-black">NestJS</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-slate-400">frontend</span>
+                                    <span class="text-2xl font-black">Next.js</span>
+                                </div>
+                                <p class="text-sm text-emerald-300">
+                                    CQRS · domain events · queues · dashboard workflows
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
                 <section
                     id="bunches"
