@@ -27,6 +27,29 @@ const technologies = [
     'Headless UI',
     'Lottie',
 ];
+
+const productScreens = [
+    {
+        title: 'Mobile Get Started',
+        src: '/friends-on-chain/friends-on-chain-get-started-mobile.png',
+        alt: 'Friends on Chain mobile get started screen',
+    },
+    {
+        title: 'Mobile Add Friends',
+        src: '/friends-on-chain/friends-on-chain-add-friend-mobile.png',
+        alt: 'Friends on Chain mobile add friend screen',
+    },
+    {
+        title: 'Mobile Edit Card',
+        src: '/friends-on-chain/friends-on-chain-edit-card-mobile.png',
+        alt: 'Friends on Chain mobile card editing screen',
+    },
+    {
+        title: 'Mobile Share Result',
+        src: '/friends-on-chain/friends-on-chain-share-mobile.png',
+        alt: 'Friends on Chain mobile sharing screen after minting',
+    },
+];
 ---
 
 <!DOCTYPE html>
@@ -110,70 +133,39 @@ const technologies = [
 
                 <section class="flex flex-col gap-8">
                     <div class="flex flex-col gap-3">
-                        <h2 class="text-3xl font-black">Representative Product Areas</h2>
+                        <h2 class="text-3xl font-black">Product Screens</h2>
                         <p class="text-slate-600 dark:text-slate-300">
-                            Representative panels show the major product surfaces
-                            without representing final Friends on Chain screenshots.
+                            Real product screens from the flow: onboarding, friend
+                            entry, card customization, desktop minting, and sharing.
                         </p>
                     </div>
                     <div class="grid gap-5 md:grid-cols-2">
-                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
-                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
-                                Wallet And Minting
-                            </p>
-                            <div class="p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
-                                <div class="flex justify-between items-center">
-                                    <span>transaction</span>
-                                    <span class="text-3xl font-black">ready</span>
-                                </div>
-                                <div class="flex justify-between items-center mt-3">
-                                    <span>token id</span>
-                                    <span class="text-3xl font-black">event</span>
-                                </div>
-                                <p class="mt-4 text-sm text-slate-400">RainbowKit · wagmi · ethers</p>
-                            </div>
-                        </div>
-                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
-                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
-                                Friend Identity Entry
-                            </p>
-                            <div class="flex flex-col gap-3 p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
-                                <div class="rounded-2xl bg-violet-600 p-3 text-sm">
-                                    Add by wallet address, ENS, Lens, or Unstoppable Domain.
-                                </div>
-                                <div class="rounded-2xl bg-slate-700 p-3 text-sm">
-                                    Validate input, prevent duplicates, and support query-prefilled friends.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
-                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
-                                NFT Preview Renderer
-                            </p>
-                            <div class="p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
-                                <div class="grid grid-cols-3 gap-2">
-                                    <div class="aspect-square rounded-xl bg-violet-600 p-2 text-xs font-bold">emoji</div>
-                                    <div class="aspect-square rounded-xl bg-amber-500 p-2 text-xs font-bold text-slate-950">crop</div>
-                                    <div class="aspect-square rounded-xl bg-emerald-500 p-2 text-xs font-bold text-slate-950">color</div>
-                                </div>
-                                <p class="mt-4 text-sm text-slate-400">
-                                    Dynamic friend cards converted from DOM to high-resolution PNG.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
-                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
-                                Upload And Share Flow
-                            </p>
-                            <div class="p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
-                                <p class="text-sm text-slate-400">Merlot backend upload</p>
-                                <p class="mt-2 font-bold">
-                                    Owner address, friend addresses, generated image,
-                                    and token ID were sent after minting so the user
-                                    could share the final NFT result.
-                                </p>
-                            </div>
-                        </div>
+                        <figure class="overflow-hidden rounded-2xl border border-slate-300 bg-slate-100/70 shadow-xl dark:border-slate-600 dark:bg-slate-800/60 md:col-span-2">
+                            <img
+                                src="/friends-on-chain/friends-on-chain-mint-desktop.png"
+                                alt="Friends on Chain desktop minting screen"
+                                class="w-full"
+                                loading="lazy"
+                            />
+                            <figcaption class="px-4 py-3 text-sm font-bold text-violet-600 dark:text-amber-500">
+                                Desktop Mint Flow
+                            </figcaption>
+                        </figure>
+                        {
+                            productScreens.map((screen) => (
+                                <figure class="overflow-hidden rounded-2xl border border-slate-300 bg-slate-100/70 shadow-xl dark:border-slate-600 dark:bg-slate-800/60">
+                                    <img
+                                        src={screen.src}
+                                        alt={screen.alt}
+                                        class="w-full"
+                                        loading="lazy"
+                                    />
+                                    <figcaption class="px-4 py-3 text-sm font-bold text-violet-600 dark:text-amber-500">
+                                        {screen.title}
+                                    </figcaption>
+                                </figure>
+                            ))
+                        }
                     </div>
                 </section>
 
