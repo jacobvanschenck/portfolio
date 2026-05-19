@@ -171,25 +171,27 @@ const productScreens = [
                                 Desktop Mint Flow
                             </figcaption>
                         </figure>
-                        {
-                            productScreens.map((screen) => (
-                                <figure class="overflow-hidden rounded-2xl border border-slate-300 bg-slate-100/70 shadow-xl dark:border-slate-600 dark:bg-slate-800/60">
-                                    <img
-                                        src={screen.webpSrc}
-                                        srcset={screen.srcSet}
-                                        sizes="(min-width: 768px) 458px, calc(100vw - 64px)"
-                                        alt={screen.alt}
-                                        class="w-full"
-                                        width={screen.width}
-                                        height={screen.height}
-                                        loading="lazy"
-                                    />
-                                    <figcaption class="px-4 py-3 text-sm font-bold text-violet-600 dark:text-amber-500">
-                                        {screen.title}
-                                    </figcaption>
-                                </figure>
-                            ))
-                        }
+                        <div class="grid grid-cols-2 gap-5 md:col-span-2 lg:grid-cols-4">
+                            {
+                                productScreens.map((screen) => (
+                                    <figure class="overflow-hidden rounded-2xl border border-slate-300 bg-slate-100/70 shadow-xl dark:border-slate-600 dark:bg-slate-800/60">
+                                        <img
+                                            src={screen.webpSrc}
+                                            srcset={screen.srcSet}
+                                            sizes="(min-width: 1024px) 219px, (min-width: 768px) 458px, calc((100vw - 84px) / 2)"
+                                            alt={screen.alt}
+                                            class="w-full"
+                                            width={screen.width}
+                                            height={screen.height}
+                                            loading="lazy"
+                                        />
+                                        <figcaption class="px-4 py-3 text-sm font-bold text-violet-600 dark:text-amber-500">
+                                            {screen.title}
+                                        </figcaption>
+                                    </figure>
+                                ))
+                            }
+                        </div>
                     </div>
                 </section>
 
