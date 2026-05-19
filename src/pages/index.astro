@@ -222,38 +222,30 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                                 >
                             </a>
                         </div>
-                        <div
-                            class="grid gap-3 p-4 rounded-xl border shadow-xl border-slate-300 bg-slate-950 text-slate-100 dark:border-slate-600"
+                        <a
+                            href="/bunches/"
+                            class="group relative overflow-hidden rounded-xl border shadow-xl border-slate-300 bg-white dark:border-slate-600 dark:bg-slate-950"
+                            aria-label="View Bunches case study"
                         >
-                            <div class="flex gap-2 items-center text-xs text-slate-400">
-                                <span class="w-3 h-3 bg-red-400 rounded-full"></span>
-                                <span class="w-3 h-3 bg-amber-400 rounded-full"></span>
-                                <span class="w-3 h-3 bg-emerald-400 rounded-full"></span>
-                                <span class="ml-auto">Bunches / Capacitor</span>
+                            <img
+                                src="/bunches/bunches-on-android-1200.webp"
+                                srcset="/bunches/bunches-on-android-1200.webp 1200w, /bunches/bunches-on-android-1800.webp 1800w"
+                                sizes="(min-width: 1024px) 520px, calc(100vw - 112px)"
+                                alt="Bunches running on Android"
+                                class="w-full transition-transform duration-300 group-hover:scale-[1.02]"
+                                width="2472"
+                                height="1480"
+                                loading="lazy"
+                            />
+                            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 to-transparent p-5 text-slate-50">
+                                <p class="text-sm font-bold text-amber-300">
+                                    Mobile App Screens
+                                </p>
+                                <p class="mt-1 text-2xl font-black">
+                                    Real-time chat, rankings, picks, and native Android delivery.
+                                </p>
                             </div>
-                            <div class="grid gap-3 sm:grid-cols-2">
-                                <div class="p-4 rounded-lg bg-slate-900">
-                                    <p class="text-xs text-amber-300">Realtime</p>
-                                    <p class="mt-2 text-2xl font-black">Chat</p>
-                                    <p class="text-sm text-slate-400">threads · reactions</p>
-                                </div>
-                                <div class="p-4 rounded-lg bg-slate-900">
-                                    <p class="text-xs text-violet-300">REP</p>
-                                    <p class="mt-2 text-2xl font-black">23B</p>
-                                    <p class="text-sm text-slate-400">capped token system</p>
-                                </div>
-                            </div>
-                            <div class="flex flex-col gap-3 p-4 rounded-lg bg-slate-900">
-                                <div class="max-w-[85%] rounded-2xl rounded-bl-sm bg-violet-600 p-3 text-sm">
-                                    New pick is live. Claim REP before kickoff.
-                                </div>
-                                <div
-                                    class="self-end max-w-[85%] rounded-2xl rounded-br-sm bg-slate-700 p-3 text-sm"
-                                >
-                                    Shared to the bunch and pushed to mobile.
-                                </div>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 </section>
                 <section
