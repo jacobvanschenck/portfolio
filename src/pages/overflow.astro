@@ -8,7 +8,7 @@ const description =
     'Full-stack platform engineering work at Overflow, a nonprofit giving platform with public APIs, donor flows, nonprofit admin tooling, permissions, reporting, reconciliation, and developer tooling.';
 
 const contributions = [
-    'Authored 286 non-merge commits across 233 ticket references, touching backend services, frontend apps, shared types, design system components, tests, and tooling.',
+    'Contributed across backend services, frontend apps, shared types, design system components, tests, and tooling.',
     'Expanded Overflow public API capabilities across donor profiles, payment methods, contributions, campaigns, subscriptions, one-time charges, response semantics, filters, and typed metadata.',
     'Helped deliver location-aware giving, reporting, exports, dashboard access control, and reusable permission abstractions for multi-location nonprofits.',
     'Built and refined nonprofit dashboard workflows for locations, funds, subfunds, API keys, user management, settings, giving links, pledge campaigns, gift entry, and reconciliation.',
@@ -26,6 +26,33 @@ const technologies = [
     'AntD',
     'Biome',
 ];
+
+const dashboardScreens = [
+    ['Dashboard Home', 'npo-dashboard-home', 'Nonprofit dashboard home screen'],
+    ['Funds', 'npo-dashboard-funds', 'Nonprofit dashboard funds screen'],
+    ['Fund Details', 'npo-dashboard-fund-details', 'Nonprofit dashboard fund details screen'],
+    ['Locations', 'npo-dashboard-locations', 'Nonprofit dashboard locations screen'],
+    ['Create Location', 'npo-dashboard-create-location', 'Nonprofit dashboard create location screen'],
+    ['Admins', 'npo-dashboard-admins', 'Nonprofit dashboard admins screen'],
+    ['Invite Admins', 'npo-dashboard-invite-admins', 'Nonprofit dashboard invite admins screen'],
+].map(([title, file, alt]) => ({
+    title,
+    src: `/overflow/${file}-1200.webp`,
+    srcSet: `/overflow/${file}-1200.webp 1200w, /overflow/${file}-1800.webp 1800w`,
+    alt,
+}));
+
+const givingFlowScreens = [
+    ['Mobile Start', 'giving-flow-start', 'Overflow giving flow start screen'],
+    ['Mobile Locations & Funds', 'giving-flow-locations-funds', 'Overflow giving flow locations and funds screen'],
+    ['Mobile Payment Methods', 'giving-flow-payment-methods', 'Overflow giving flow payment methods screen'],
+    ['Mobile Success', 'giving-flow-success', 'Overflow giving flow success screen'],
+].map(([title, file, alt]) => ({
+    title,
+    src: `/overflow/${file}-726.webp`,
+    srcSet: `/overflow/${file}-480.webp 480w, /overflow/${file}-726.webp 726w`,
+    alt,
+}));
 ---
 
 <!DOCTYPE html>
@@ -109,67 +136,64 @@ const technologies = [
 
                 <section class="flex flex-col gap-8">
                     <div class="flex flex-col gap-3">
-                        <h2 class="text-3xl font-black">Representative Product Areas</h2>
+                        <h2 class="text-3xl font-black">Dashboard Product Screens</h2>
                         <p class="text-slate-600 dark:text-slate-300">
-                            Representative panels summarize the major product and
-                            platform areas without using final Overflow screenshots.
+                            Nonprofit dashboard workflows for funds, fund details,
+                            locations, admin management, invitations, and creation flows.
                         </p>
                     </div>
                     <div class="grid gap-5 md:grid-cols-2">
-                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
-                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
-                                Public API Platform
-                            </p>
-                            <div class="p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
-                                <div class="flex justify-between items-center">
-                                    <span>donors</span>
-                                    <span class="text-3xl font-black">API</span>
-                                </div>
-                                <div class="flex justify-between items-center mt-3">
-                                    <span>payments</span>
-                                    <span class="text-3xl font-black">typed</span>
-                                </div>
-                                <p class="mt-4 text-sm text-slate-400">OpenAPI · DTOs · response semantics</p>
-                            </div>
-                        </div>
-                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
-                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
-                                Locations And Permissions
-                            </p>
-                            <div class="flex flex-col gap-3 p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
-                                <div class="rounded-2xl bg-violet-600 p-3 text-sm">
-                                    Scope contributions, pledges, exports, reports, and households by accessible locations.
-                                </div>
-                                <div class="rounded-2xl bg-slate-700 p-3 text-sm">
-                                    Replace duplicated controller logic with reusable access-control abstractions.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
-                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
-                                Nonprofit Dashboard
-                            </p>
-                            <div class="p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
-                                <p class="text-sm text-slate-400">settings · users · funds</p>
-                                <p class="mt-2 font-bold">
-                                    Built admin workflows for locations, roles,
-                                    API keys, funds, subfunds, pledge campaigns,
-                                    giving links, gift entry, and reconciliation.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="p-5 rounded-2xl border border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
-                            <p class="text-sm font-bold text-violet-600 dark:text-amber-500">
-                                Backend Architecture
-                            </p>
-                            <div class="p-5 mt-4 rounded-xl bg-slate-950 text-slate-100">
-                                <p class="text-sm text-slate-400">reliability patterns</p>
-                                <p class="mt-2 text-4xl font-black">CQRS</p>
-                                <p class="mt-4 text-sm text-emerald-300">
-                                    Domain events, sagas, queue-backed jobs, repositories, and tests.
-                                </p>
-                            </div>
-                        </div>
+                        {
+                            dashboardScreens.map((screen) => (
+                                <figure class="overflow-hidden rounded-2xl border border-slate-300 bg-slate-100/70 shadow-xl dark:border-slate-600 dark:bg-slate-800/60">
+                                    <img
+                                        src={screen.src}
+                                        srcset={screen.srcSet}
+                                        sizes="(min-width: 768px) 458px, calc(100vw - 64px)"
+                                        alt={screen.alt}
+                                        class="w-full"
+                                        width="3248"
+                                        height="2122"
+                                        loading="lazy"
+                                    />
+                                    <figcaption class="px-4 py-3 text-sm font-bold text-violet-600 dark:text-amber-500">
+                                        {screen.title}
+                                    </figcaption>
+                                </figure>
+                            ))
+                        }
+                    </div>
+                </section>
+
+                <section class="flex flex-col gap-8">
+                    <div class="flex flex-col gap-3">
+                        <h2 class="text-3xl font-black">Giving Flow Product Screens</h2>
+                        <p class="text-slate-600 dark:text-slate-300">
+                            Donor-facing mobile giving screens for starting a gift,
+                            selecting locations and funds, choosing payment methods,
+                            and completing the donation.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-5 lg:grid-cols-4">
+                        {
+                            givingFlowScreens.map((screen) => (
+                                <figure class="flex flex-col overflow-hidden rounded-2xl border border-slate-300 bg-slate-100/70 shadow-xl dark:border-slate-600 dark:bg-slate-800/60">
+                                    <img
+                                        src={screen.src}
+                                        srcset={screen.srcSet}
+                                        sizes="(min-width: 1024px) 219px, calc((100vw - 84px) / 2)"
+                                        alt={screen.alt}
+                                        class="w-full pb-4 bg-white"
+                                        width="726"
+                                        height="1602"
+                                        loading="lazy"
+                                    />
+                                    <figcaption class="flex min-h-16 items-center justify-center px-3 py-3 text-sm font-bold text-center text-violet-600 dark:text-amber-500">
+                                        {screen.title}
+                                    </figcaption>
+                                </figure>
+                            ))
+                        }
                     </div>
                 </section>
 
