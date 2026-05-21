@@ -30,11 +30,27 @@ const technologies = [
 const dashboardScreens = [
     ['Dashboard Home', 'npo-dashboard-home', 'Nonprofit dashboard home screen'],
     ['Funds', 'npo-dashboard-funds', 'Nonprofit dashboard funds screen'],
-    ['Fund Details', 'npo-dashboard-fund-details', 'Nonprofit dashboard fund details screen'],
-    ['Locations', 'npo-dashboard-locations', 'Nonprofit dashboard locations screen'],
-    ['Create Location', 'npo-dashboard-create-location', 'Nonprofit dashboard create location screen'],
+    [
+        'Fund Details',
+        'npo-dashboard-fund-details',
+        'Nonprofit dashboard fund details screen',
+    ],
+    [
+        'Locations',
+        'npo-dashboard-locations',
+        'Nonprofit dashboard locations screen',
+    ],
+    [
+        'Create Location',
+        'npo-dashboard-create-location',
+        'Nonprofit dashboard create location screen',
+    ],
     ['Admins', 'npo-dashboard-admins', 'Nonprofit dashboard admins screen'],
-    ['Invite Admins', 'npo-dashboard-invite-admins', 'Nonprofit dashboard invite admins screen'],
+    [
+        'Invite Admins',
+        'npo-dashboard-invite-admins',
+        'Nonprofit dashboard invite admins screen',
+    ],
 ].map(([title, file, alt]) => ({
     title,
     src: `/overflow/${file}-1200.webp`,
@@ -44,15 +60,30 @@ const dashboardScreens = [
 
 const givingFlowScreens = [
     ['Mobile Start', 'giving-flow-start', 'Overflow giving flow start screen'],
-    ['Mobile Locations & Funds', 'giving-flow-locations-funds', 'Overflow giving flow locations and funds screen'],
-    ['Mobile Payment Methods', 'giving-flow-payment-methods', 'Overflow giving flow payment methods screen'],
-    ['Mobile Success', 'giving-flow-success', 'Overflow giving flow success screen'],
+    [
+        'Mobile Locations & Funds',
+        'giving-flow-locations-funds',
+        'Overflow giving flow locations and funds screen',
+    ],
+    [
+        'Mobile Payment Methods',
+        'giving-flow-payment-methods',
+        'Overflow giving flow payment methods screen',
+    ],
+    [
+        'Mobile Success',
+        'giving-flow-success',
+        'Overflow giving flow success screen',
+    ],
 ].map(([title, file, alt]) => ({
     title,
     src: `/overflow/${file}-726.webp`,
     srcSet: `/overflow/${file}-480.webp 480w, /overflow/${file}-726.webp 726w`,
     alt,
 }));
+
+const unreleasedScreenNotice =
+    'Preview withheld until these product surfaces are publicly available.';
 ---
 
 <!DOCTYPE html>
@@ -146,16 +177,23 @@ const givingFlowScreens = [
                         {
                             dashboardScreens.map((screen) => (
                                 <figure class="overflow-hidden rounded-2xl border border-slate-300 bg-slate-100/70 shadow-xl dark:border-slate-600 dark:bg-slate-800/60">
-                                    <img
-                                        src={screen.src}
-                                        srcset={screen.srcSet}
-                                        sizes="(min-width: 768px) 458px, calc(100vw - 64px)"
-                                        alt={screen.alt}
-                                        class="w-full"
-                                        width="3248"
-                                        height="2122"
-                                        loading="lazy"
-                                    />
+                                    <div class="relative overflow-hidden">
+                                        <img
+                                            src={screen.src}
+                                            srcset={screen.srcSet}
+                                            sizes="(min-width: 768px) 458px, calc(100vw - 64px)"
+                                            alt={screen.alt}
+                                            class="w-full scale-[1.02] blur-sm grayscale"
+                                            width="3248"
+                                            height="2122"
+                                            loading="lazy"
+                                        />
+                                        <div class="absolute inset-0 flex items-center justify-center bg-slate-950/35 p-6 text-center backdrop-blur-[1px]">
+                                            <p class="max-w-xs rounded-xl border border-white/20 bg-slate-950/75 px-4 py-3 text-sm font-bold text-slate-50 shadow-xl">
+                                                {unreleasedScreenNotice}
+                                            </p>
+                                        </div>
+                                    </div>
                                     <figcaption class="px-4 py-3 text-sm font-bold text-violet-600 dark:text-amber-500">
                                         {screen.title}
                                     </figcaption>
