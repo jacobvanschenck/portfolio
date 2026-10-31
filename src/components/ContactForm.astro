@@ -1,15 +1,15 @@
 ---
-import Input from './Input.astro';
+import Input from "./Input.astro";
 ---
 
 <form class="flex flex-col gap-8" hx-post="/api/send">
-    <Input label="Name" type="text" />
-    <Input label="Email" type="email" />
-    <Input label="Message" type="text" />
-    <button
-        type="submit"
-        class="w-full h-10 font-bold text-center bg-violet-600 rounded-lg transition duration-150 dark:bg-amber-500 hover:scale-95 text-slate-100 dark:text-slate-800 active:enabled:scale-90"
-    >
-        Send
-    </button>
+  <Input label="Name" type="text" />
+  <Input label="Email" type="email" />
+  <Input label="Message" type="text" />
+  <button
+    type="submit"
+    class="w-full h-10 font-bold text-center bg-violet-600 rounded-lg transition duration-150 dark:bg-amber-500 hover:scale-95 text-slate-100 dark:text-slate-800 active:enabled:scale-90"
+  >
+    Send
+  </button>
 </form>
