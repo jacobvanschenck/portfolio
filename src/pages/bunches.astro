@@ -1,11 +1,8 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-
-const title = "Bunches | Jacob Van Schenck";
-const description =
-  "Product engineering case study for Bunches, a mobile-first social app with real-time chat, native mobile flows, GraphQL infrastructure, and REP token interactions.";
 
 const contributions = [
   "Led the Capacitor client from early Turborepo scaffolding into a production-grade mobile/web app, authoring 485 commits in the monorepo.",
@@ -75,154 +72,144 @@ const productScreens = [
 ];
 ---
 
-<!doctype html>
-<html
-  lang="en"
-  x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
-  x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
-  x-bind:class="{ 'dark': darkMode }"
-  class="scroll-smooth"
+<BaseLayout
+  title="Bunches | Jacob Van Schenck"
+  description="Product engineering case study for Bunches, a mobile-first social app with real-time chat, native mobile flows, GraphQL infrastructure, and REP token interactions."
 >
-  <head>
-    <BaseHead title={title} description={description} />
-  </head>
-  <body class="bg-gradient-to-br to-slate-300 from-slate-50 text-slate-800 dark:from-slate-900 dark:to-slate-700 dark:text-slate-50">
-    <div class="w-full">
-      <Header />
-      <main class="flex flex-col gap-20 px-8 pt-32 mx-auto w-full max-w-[1000px]">
-        <section class="flex flex-col gap-8">
-          <a
-            href="/#bunches"
-            class="flex gap-2 items-center self-start font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
-          >
-            <span class="transition-transform duration-150 group-hover:-translate-x-1">
-              {"<-"}
-            </span>
-            Back to Bunches
-          </a>
-          <div class="flex flex-col gap-5">
-            <p class="text-sm font-bold text-violet-600 uppercase dark:text-amber-500 tracking-[0.2em]">
-              Product Engineering Case Study
-            </p>
-            <h1 class="text-4xl font-black leading-tight sm:text-6xl">
-              Bunches. Chat Sports.
-            </h1>
-            <p class="max-w-3xl text-lg text-slate-600 dark:text-slate-300">
-              A mobile-first social app for sports communities with real-time
-              chat, group discovery, direct messages, rewards, picks, native
-              Android flows, and REP-powered onchain interactions.
-            </p>
-          </div>
-        </section>
-
-        <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-          <h2 class="text-3xl font-black">Overview</h2>
-          <div class="flex flex-col gap-4 text-slate-600 dark:text-slate-300">
-            <p>
-              Bunches needed a community product where sports fans could join
-              groups, chat in real time, share content, receive notifications,
-              make picks, earn rewards, and use REP without being exposed to raw
-              wallet or transaction complexity.
-            </p>
-            <p>
-              I was the primary engineer behind the Capacitor client app and REP
-              ecosystem, connecting product surfaces to real-time messaging,
-              typed GraphQL data, native mobile APIs, non-custodial wallet
-              persistence, analytics, release automation, and gasless onchain
-              flows.
-            </p>
-          </div>
-        </section>
-
-        <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-          <h2 class="text-3xl font-black">Impact</h2>
-          <ul class="grid gap-3">
-            {contributions.map((item) => (
-              <li class="p-4 rounded-xl border border-slate-300 bg-slate-100/60 dark:border-slate-600 dark:bg-slate-800/50">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section class="flex flex-col gap-8">
-          <div class="flex flex-col gap-3">
-            <h2 class="text-3xl font-black">Product Screens</h2>
-            <p class="text-slate-600 dark:text-slate-300">
-              Real Bunches screens from the mobile app and Android delivery
-              flow: chat, profile, rankings, scoreboard, takes, and device
-              install context.
-            </p>
-          </div>
-          <div class="grid gap-5 md:grid-cols-2">
-            <figure class="overflow-hidden rounded-2xl border shadow-xl md:col-span-2 border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
-              <img
-                src="/bunches/bunches-on-android-1200.webp"
-                srcset="/bunches/bunches-on-android-1200.webp 1200w, /bunches/bunches-on-android-1800.webp 1800w"
-                sizes="(min-width: 768px) 936px, calc(100vw - 64px)"
-                alt="Bunches running on Android"
-                class="w-full"
-                width="2472"
-                height="1480"
-                loading="lazy"
-              />
-              <figcaption class="py-3 px-4 text-sm font-bold text-violet-600 dark:text-amber-500">
-                Android App Delivery
-              </figcaption>
-            </figure>
-            <div class="grid grid-cols-2 gap-5 md:col-span-2 lg:grid-cols-5">
-              {productScreens.map((screen) => (
-                <figure class="flex overflow-hidden flex-col justify-between bg-white rounded-2xl border shadow-xl">
-                  <img
-                    src={screen.webpSrc}
-                    srcset={screen.srcSet}
-                    sizes="(min-width: 1024px) 168px, (min-width: 768px) 458px, calc((100vw - 84px) / 2)"
-                    alt={screen.alt}
-                    class="pb-4 w-full bg-white"
-                    width={screen.width}
-                    height={screen.height}
-                    loading="lazy"
-                  />
-                  <figcaption class="flex justify-center items-center py-3 px-3 text-sm font-bold text-center text-violet-600 dark:text-amber-500 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
-                    {screen.title}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-          <h2 class="text-3xl font-black">Tech & Constraints</h2>
-          <div class="flex flex-col gap-5">
-            <ul class="flex flex-wrap gap-2">
-              {technologies.map((tech) => (
-                <li class="py-1 px-3 text-xs text-violet-800 rounded-3xl sm:text-sm bg-violet-300/40 dark:bg-amber-800/40 dark:text-amber-100/90">
-                  {tech}
-                </li>
-              ))}
-            </ul>
-            <p class="text-slate-600 dark:text-slate-300">
-              The key engineering challenge was coordinating native mobile
-              behavior, web rendering, realtime messaging, GraphQL server state,
-              local interaction state, wallet recovery, signed transactions,
-              analytics, observability, and release workflows across a
-              multi-package app.
-            </p>
-          </div>
-        </section>
-
+  <div class="w-full">
+    <Header />
+    <main class="flex flex-col gap-20 px-8 pt-32 mx-auto w-full max-w-250">
+      <section class="flex flex-col gap-8">
         <a
           href="/#bunches"
-          class="flex gap-2 items-center self-start pb-20 font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+          class="flex gap-2 items-center self-start font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
         >
           <span class="transition-transform duration-150 group-hover:-translate-x-1">
             {"<-"}
           </span>
           Back to Bunches
         </a>
-      </main>
-      <Footer />
-    </div>
-  </body>
-</html>
+        <div class="flex flex-col gap-5">
+          <p class="text-sm font-bold text-violet-600 uppercase dark:text-amber-500 tracking-[0.2em]">
+            Product Engineering Case Study
+          </p>
+          <h1 class="text-4xl font-black leading-tight sm:text-6xl">
+            Bunches. Chat Sports.
+          </h1>
+          <p class="max-w-3xl text-lg text-slate-600 dark:text-slate-300">
+            A mobile-first social app for sports communities with real-time
+            chat, group discovery, direct messages, rewards, picks, native
+            Android flows, and REP-powered onchain interactions.
+          </p>
+        </div>
+      </section>
+
+      <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+        <h2 class="text-3xl font-black">Overview</h2>
+        <div class="flex flex-col gap-4 text-slate-600 dark:text-slate-300">
+          <p>
+            Bunches needed a community product where sports fans could join
+            groups, chat in real time, share content, receive notifications,
+            make picks, earn rewards, and use REP without being exposed to raw
+            wallet or transaction complexity.
+          </p>
+          <p>
+            I was the primary engineer behind the Capacitor client app and REP
+            ecosystem, connecting product surfaces to real-time messaging, typed
+            GraphQL data, native mobile APIs, non-custodial wallet persistence,
+            analytics, release automation, and gasless onchain flows.
+          </p>
+        </div>
+      </section>
+
+      <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+        <h2 class="text-3xl font-black">Impact</h2>
+        <ul class="grid gap-3">
+          {contributions.map((item) => (
+            <li class="p-4 rounded-xl border border-slate-300 bg-slate-100/60 dark:border-slate-600 dark:bg-slate-800/50">
+              {item}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="flex flex-col gap-8">
+        <div class="flex flex-col gap-3">
+          <h2 class="text-3xl font-black">Product Screens</h2>
+          <p class="text-slate-600 dark:text-slate-300">
+            Real Bunches screens from the mobile app and Android delivery flow:
+            chat, profile, rankings, scoreboard, takes, and device install
+            context.
+          </p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2">
+          <figure class="overflow-hidden rounded-2xl border shadow-xl md:col-span-2 border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
+            <img
+              src="/bunches/bunches-on-android-1200.webp"
+              srcset="/bunches/bunches-on-android-1200.webp 1200w, /bunches/bunches-on-android-1800.webp 1800w"
+              sizes="(min-width: 768px) 936px, calc(100vw - 64px)"
+              alt="Bunches running on Android"
+              class="w-full"
+              width="2472"
+              height="1480"
+              loading="lazy"
+            />
+            <figcaption class="py-3 px-4 text-sm font-bold text-violet-600 dark:text-amber-500">
+              Android App Delivery
+            </figcaption>
+          </figure>
+          <div class="grid grid-cols-2 gap-5 md:col-span-2 lg:grid-cols-5">
+            {productScreens.map((screen) => (
+              <figure class="flex overflow-hidden flex-col justify-between bg-white rounded-2xl border shadow-xl">
+                <img
+                  src={screen.webpSrc}
+                  srcset={screen.srcSet}
+                  sizes="(min-width: 1024px) 168px, (min-width: 768px) 458px, calc((100vw - 84px) / 2)"
+                  alt={screen.alt}
+                  class="pb-4 w-full bg-white"
+                  width={screen.width}
+                  height={screen.height}
+                  loading="lazy"
+                />
+                <figcaption class="flex justify-center items-center py-3 px-3 text-sm font-bold text-center text-violet-600 dark:text-amber-500 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
+                  {screen.title}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+        <h2 class="text-3xl font-black">Tech & Constraints</h2>
+        <div class="flex flex-col gap-5">
+          <ul class="flex flex-wrap gap-2">
+            {technologies.map((tech) => (
+              <li class="py-1 px-3 text-xs text-violet-800 rounded-3xl sm:text-sm bg-violet-300/40 dark:bg-amber-800/40 dark:text-amber-100/90">
+                {tech}
+              </li>
+            ))}
+          </ul>
+          <p class="text-slate-600 dark:text-slate-300">
+            The key engineering challenge was coordinating native mobile
+            behavior, web rendering, realtime messaging, GraphQL server state,
+            local interaction state, wallet recovery, signed transactions,
+            analytics, observability, and release workflows across a
+            multi-package app.
+          </p>
+        </div>
+      </section>
+
+      <a
+        href="/#bunches"
+        class="flex gap-2 items-center self-start pb-20 font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+      >
+        <span class="transition-transform duration-150 group-hover:-translate-x-1">
+          {"<-"}
+        </span>
+        Back to Bunches
+      </a>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

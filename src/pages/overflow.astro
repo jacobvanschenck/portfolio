@@ -1,11 +1,7 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-
-const title = "Overflow | Jacob Van Schenck";
-const description =
-  "Full-stack platform engineering work at Overflow, a nonprofit giving platform with public APIs, donor flows, nonprofit admin tooling, permissions, reporting, reconciliation, and developer tooling.";
 
 const contributions = [
   "Contributed across backend services, frontend apps, shared types, design system components, tests, and tooling.",
@@ -86,174 +82,164 @@ const unreleasedScreenNotice =
   "Preview withheld until these product surfaces are publicly available.";
 ---
 
-<!doctype html>
-<html
-  lang="en"
-  x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
-  x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
-  x-bind:class="{ 'dark': darkMode }"
-  class="scroll-smooth"
+<BaseLayout
+  title="Overflow | Jacob Van Schenck"
+  description="Full-stack platform engineering work at Overflow, a nonprofit giving platform with public APIs, donor flows, nonprofit admin tooling, permissions, reporting, reconciliation, and developer tooling."
 >
-  <head>
-    <BaseHead title={title} description={description} />
-  </head>
-  <body class="bg-gradient-to-br to-slate-300 from-slate-50 text-slate-800 dark:from-slate-900 dark:to-slate-700 dark:text-slate-50">
-    <div class="w-full">
-      <Header />
-      <main class="flex flex-col gap-20 px-8 pt-32 mx-auto w-full max-w-[1000px]">
-        <section class="flex flex-col gap-8">
-          <a
-            href="/#overflow"
-            class="flex gap-2 items-center self-start font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
-          >
-            <span class="transition-transform duration-150 group-hover:-translate-x-1">
-              {"<-"}
-            </span>
-            Back to Overflow
-          </a>
-          <div class="flex flex-col gap-5">
-            <p class="text-sm font-bold text-violet-600 uppercase dark:text-amber-500 tracking-[0.2em]">
-              Full-Stack Platform Engineering Case Study
-            </p>
-            <h1 class="text-4xl font-black leading-tight sm:text-6xl">
-              Overflow
-            </h1>
-            <p class="max-w-3xl text-lg text-slate-600 dark:text-slate-300">
-              A multi-channel nonprofit giving platform that helps organizations
-              accept and manage donations across cash, stock, crypto,
-              donor-advised funds, pledges, recurring giving, roundups, and
-              offline gifts.
-            </p>
-          </div>
-        </section>
-
-        <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-          <h2 class="text-3xl font-black">Overview</h2>
-          <div class="flex flex-col gap-4 text-slate-600 dark:text-slate-300">
-            <p>
-              Overflow combines donor-facing donation flows, nonprofit admin
-              tooling, payment processing, reporting, reconciliation, and
-              third-party integrations into a unified giving infrastructure
-              platform.
-            </p>
-            <p>
-              I contribute across the TypeScript monorepo, spanning NestJS
-              backend modules, public API schemas, domain events, queue-backed
-              jobs, React/Next dashboard workflows, donor-facing experiences,
-              shared types, design system components, tests, linting, and
-              developer tooling.
-            </p>
-          </div>
-        </section>
-
-        <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-          <h2 class="text-3xl font-black">Impact</h2>
-          <ul class="grid gap-3">
-            {contributions.map((item) => (
-              <li class="p-4 rounded-xl border border-slate-300 bg-slate-100/60 dark:border-slate-600 dark:bg-slate-800/50">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section class="flex flex-col gap-8">
-          <div class="flex flex-col gap-3">
-            <h2 class="text-3xl font-black">Dashboard Product Screens</h2>
-            <p class="text-slate-600 dark:text-slate-300">
-              Nonprofit dashboard workflows for funds, fund details, locations,
-              admin management, invitations, and creation flows.
-            </p>
-          </div>
-          <div class="grid gap-5 md:grid-cols-2">
-            {dashboardScreens.map((screen) => (
-              <figure class="overflow-hidden rounded-2xl border border-slate-300 bg-slate-100/70 shadow-xl dark:border-slate-600 dark:bg-slate-800/60">
-                <div class="relative overflow-hidden">
-                  <img
-                    src={screen.src}
-                    srcset={screen.srcSet}
-                    sizes="(min-width: 768px) 458px, calc(100vw - 64px)"
-                    alt={screen.alt}
-                    class="w-full scale-[1.02] blur-sm grayscale"
-                    width="3248"
-                    height="2122"
-                    loading="lazy"
-                  />
-                  <div class="absolute inset-0 flex items-center justify-center bg-slate-950/35 p-6 text-center backdrop-blur-[1px]">
-                    <p class="max-w-xs rounded-xl border border-white/20 bg-slate-950/75 px-4 py-3 text-sm font-bold text-slate-50 shadow-xl">
-                      {unreleasedScreenNotice}
-                    </p>
-                  </div>
-                </div>
-                <figcaption class="px-4 py-3 text-sm font-bold text-violet-600 dark:text-amber-500">
-                  {screen.title}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </section>
-
-        <section class="flex flex-col gap-8">
-          <div class="flex flex-col gap-3">
-            <h2 class="text-3xl font-black">Giving Flow Product Screens</h2>
-            <p class="text-slate-600 dark:text-slate-300">
-              Donor-facing mobile giving screens for starting a gift, selecting
-              locations and funds, choosing payment methods, and completing the
-              donation.
-            </p>
-          </div>
-          <div class="grid grid-cols-2 gap-5 lg:grid-cols-4">
-            {givingFlowScreens.map((screen) => (
-              <figure class="flex flex-col overflow-hidden rounded-2xl border border-slate-300 bg-slate-100/70 shadow-xl dark:border-slate-600 dark:bg-slate-800/60">
-                <img
-                  src={screen.src}
-                  srcset={screen.srcSet}
-                  sizes="(min-width: 1024px) 219px, calc((100vw - 84px) / 2)"
-                  alt={screen.alt}
-                  class="w-full pb-4 bg-white"
-                  width="726"
-                  height="1602"
-                  loading="lazy"
-                />
-                <figcaption class="flex min-h-16 items-center justify-center px-3 py-3 text-sm font-bold text-center text-violet-600 dark:text-amber-500">
-                  {screen.title}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </section>
-
-        <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-          <h2 class="text-3xl font-black">Tech & Constraints</h2>
-          <div class="flex flex-col gap-5">
-            <ul class="flex flex-wrap gap-2">
-              {technologies.map((tech) => (
-                <li class="py-1 px-3 text-xs text-violet-800 rounded-3xl sm:text-sm bg-violet-300/40 dark:bg-amber-800/40 dark:text-amber-100/90">
-                  {tech}
-                </li>
-              ))}
-            </ul>
-            <p class="text-slate-600 dark:text-slate-300">
-              The key engineering challenge was making complex nonprofit
-              financial workflows safer and more scalable across product
-              surfaces: donor checkout, admin tools, public APIs, permissions,
-              reports, exports, reconciliation, third-party sync, and background
-              jobs.
-            </p>
-          </div>
-        </section>
-
+  <div class="w-full">
+    <Header />
+    <main class="flex flex-col gap-20 px-8 pt-32 mx-auto w-full max-w-250">
+      <section class="flex flex-col gap-8">
         <a
           href="/#overflow"
-          class="flex gap-2 items-center self-start pb-20 font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+          class="flex gap-2 items-center self-start font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
         >
           <span class="transition-transform duration-150 group-hover:-translate-x-1">
             {"<-"}
           </span>
           Back to Overflow
         </a>
-      </main>
-      <Footer />
-    </div>
-  </body>
-</html>
+        <div class="flex flex-col gap-5">
+          <p class="text-sm font-bold text-violet-600 uppercase dark:text-amber-500 tracking-[0.2em]">
+            Full-Stack Platform Engineering Case Study
+          </p>
+          <h1 class="text-4xl font-black leading-tight sm:text-6xl">
+            Overflow
+          </h1>
+          <p class="max-w-3xl text-lg text-slate-600 dark:text-slate-300">
+            A multi-channel nonprofit giving platform that helps organizations
+            accept and manage donations across cash, stock, crypto,
+            donor-advised funds, pledges, recurring giving, roundups, and
+            offline gifts.
+          </p>
+        </div>
+      </section>
+
+      <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+        <h2 class="text-3xl font-black">Overview</h2>
+        <div class="flex flex-col gap-4 text-slate-600 dark:text-slate-300">
+          <p>
+            Overflow combines donor-facing donation flows, nonprofit admin
+            tooling, payment processing, reporting, reconciliation, and
+            third-party integrations into a unified giving infrastructure
+            platform.
+          </p>
+          <p>
+            I contribute across the TypeScript monorepo, spanning NestJS backend
+            modules, public API schemas, domain events, queue-backed jobs,
+            React/Next dashboard workflows, donor-facing experiences, shared
+            types, design system components, tests, linting, and developer
+            tooling.
+          </p>
+        </div>
+      </section>
+
+      <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+        <h2 class="text-3xl font-black">Impact</h2>
+        <ul class="grid gap-3">
+          {contributions.map((item) => (
+            <li class="p-4 rounded-xl border border-slate-300 bg-slate-100/60 dark:border-slate-600 dark:bg-slate-800/50">
+              {item}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="flex flex-col gap-8">
+        <div class="flex flex-col gap-3">
+          <h2 class="text-3xl font-black">Dashboard Product Screens</h2>
+          <p class="text-slate-600 dark:text-slate-300">
+            Nonprofit dashboard workflows for funds, fund details, locations,
+            admin management, invitations, and creation flows.
+          </p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2">
+          {dashboardScreens.map((screen) => (
+            <figure class="overflow-hidden rounded-2xl border border-slate-300 bg-slate-100/70 shadow-xl dark:border-slate-600 dark:bg-slate-800/60">
+              <div class="relative overflow-hidden">
+                <img
+                  src={screen.src}
+                  srcset={screen.srcSet}
+                  sizes="(min-width: 768px) 458px, calc(100vw - 64px)"
+                  alt={screen.alt}
+                  class="w-full scale-[1.02] blur-sm grayscale"
+                  width="3248"
+                  height="2122"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 flex items-center justify-center bg-slate-950/35 p-6 text-center backdrop-blur-[1px]">
+                  <p class="max-w-xs rounded-xl border border-white/20 bg-slate-950/75 px-4 py-3 text-sm font-bold text-slate-50 shadow-xl">
+                    {unreleasedScreenNotice}
+                  </p>
+                </div>
+              </div>
+              <figcaption class="px-4 py-3 text-sm font-bold text-violet-600 dark:text-amber-500">
+                {screen.title}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section class="flex flex-col gap-8">
+        <div class="flex flex-col gap-3">
+          <h2 class="text-3xl font-black">Giving Flow Product Screens</h2>
+          <p class="text-slate-600 dark:text-slate-300">
+            Donor-facing mobile giving screens for starting a gift, selecting
+            locations and funds, choosing payment methods, and completing the
+            donation.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-5 lg:grid-cols-4">
+          {givingFlowScreens.map((screen) => (
+            <figure class="flex flex-col overflow-hidden rounded-2xl border border-slate-300 bg-slate-100/70 shadow-xl dark:border-slate-600 dark:bg-slate-800/60">
+              <img
+                src={screen.src}
+                srcset={screen.srcSet}
+                sizes="(min-width: 1024px) 219px, calc((100vw - 84px) / 2)"
+                alt={screen.alt}
+                class="w-full pb-4 bg-white"
+                width="726"
+                height="1602"
+                loading="lazy"
+              />
+              <figcaption class="flex min-h-16 items-center justify-center px-3 py-3 text-sm font-bold text-center text-violet-600 dark:text-amber-500">
+                {screen.title}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+        <h2 class="text-3xl font-black">Tech & Constraints</h2>
+        <div class="flex flex-col gap-5">
+          <ul class="flex flex-wrap gap-2">
+            {technologies.map((tech) => (
+              <li class="py-1 px-3 text-xs text-violet-800 rounded-3xl sm:text-sm bg-violet-300/40 dark:bg-amber-800/40 dark:text-amber-100/90">
+                {tech}
+              </li>
+            ))}
+          </ul>
+          <p class="text-slate-600 dark:text-slate-300">
+            The key engineering challenge was making complex nonprofit financial
+            workflows safer and more scalable across product surfaces: donor
+            checkout, admin tools, public APIs, permissions, reports, exports,
+            reconciliation, third-party sync, and background jobs.
+          </p>
+        </div>
+      </section>
+
+      <a
+        href="/#overflow"
+        class="flex gap-2 items-center self-start pb-20 font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+      >
+        <span class="transition-transform duration-150 group-hover:-translate-x-1">
+          {"<-"}
+        </span>
+        Back to Overflow
+      </a>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>
