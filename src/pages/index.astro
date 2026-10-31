@@ -4,8 +4,9 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import ContactForm from "../components/ContactForm.astro";
-import Terminal from "../components/Terminal.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+import "../styles/global.css";
 ---
 
 <!doctype html>
@@ -20,11 +21,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
-  <body class="bg-gradient-to-br to-slate-300 from-slate-50 text-slate-800 dark:from-slate-900 dark:to-slate-700 dark:text-slate-50">
+  <body class="bg-background text-foreground">
     <div class="w-full">
       <Header />
       <main class="flex flex-col items-center mx-auto w-full max-w-[1000px]">
-        <section class="flex flex-col gap-8 px-8 pt-24 w-full min-h-screen sm:gap-16 sm:pt-36 font-terminal">
+        <section class="flex flex-col gap-8 px-8 pt-24 w-full sm:gap-16 sm:pt-36 font-terminal">
           <h1 class="text-4xl font-bold leading-snug sm:text-5xl lg:text-6xl font-terminal">
             <span class="mr-2">{">"}</span>Jacob{" "}
             <span class="sm:hidden">
@@ -43,24 +44,23 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
             clear for teams to extend and useful for the people relying on them.
             Check out my&nbsp;
             <a
-              class="inline-block font-bold text-violet-600 dark:text-amber-500 group"
+              class="inline-block font-bold text-primary group"
               href="#overflow"
               aria-label="selected work"
             >
               selected work
-              <span class="block mt-1 w-full h-1 bg-violet-600 transition-transform duration-100 origin-left scale-x-0 dark:bg-amber-500 group-hover:scale-x-100"></span>
+              <span class="block mt-1 w-full h-1 bg-primary transition-transform duration-100 origin-left scale-x-0 group-hover:scale-x-100"></span>
             </a>
             &nbsp;or my&nbsp;
             <a
-              class="inline-block font-bold text-violet-600 dark:text-amber-500 group"
+              class="inline-block font-bold text-primary group"
               href="#projects"
               aria-label="side projects"
             >
               side projects
-              <span class="block mt-1 w-full h-1 bg-violet-600 transition-transform duration-100 origin-left scale-x-0 dark:bg-amber-500 group-hover:scale-x-100"></span>
+              <span class="block mt-1 w-full h-1 bg-primary transition-transform duration-100 origin-left scale-x-0 group-hover:scale-x-100"></span>
             </a>
           </p>
-          <Terminal />
         </section>
         <section
           id="overflow"

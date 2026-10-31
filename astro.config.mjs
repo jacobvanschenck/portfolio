@@ -1,11 +1,13 @@
-import { defineConfig } from 'astro/config';
-
-import tailwind from '@astrojs/tailwind';
-
-import sitemap from '@astrojs/sitemap';
+import sitemap from "@astrojs/sitemap";
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [tailwind(), sitemap()],
-    site: 'https://jacobvs.xyz',
+	integrations: [sitemap()],
+	site: "https://jacobvs.xyz",
+
+	vite: {
+		plugins: [tailwindcss()],
+	},
 });
