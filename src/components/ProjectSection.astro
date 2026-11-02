@@ -1,23 +1,96 @@
 ---
-import ProjectCard from "./ProjectCard.astro";
+const items = [
+  {
+    name: "TsunamiTrade",
+    sourceHref: "https://github.com/jacobvanschenck/tsunami-trades",
+    siteHref: "https://dex-vs.netlify.app/",
+    webpSrc: "/TsunamiTrades.png",
+    description: "A web3 trading prototype for tokens.",
+    tag: "web3",
+  },
+  {
+    name: "TurboRunners",
+    sourceHref: "https://github.com/jacobvanschenck/turbo-runners",
+    siteHref: "https://turbo-runners.vercel.app/",
+    webpSrc: "/turbo-runners.png",
+    description: "An NFT minting site with creator royalties.",
+    tag: "web3",
+  },
+];
 ---
 
 <section id="projects" class="flex flex-col">
-  <h2 class="font-black">Projects</h2>
-  <ProjectCard
-    imgSrc={"/TsunamiTrades.png"}
-    techList={["React", "TailwindCSS", "Solidity", "HardHat", "Viem"]}
-    projectTitle={"MyDex"}
-    siteLink="https://dex-vs.netlify.app/"
-    githubLink="https://github.com/jacobvanschenck/tsunami-trades"
-    description="A Web3 trading prototype for creating market and limit orders against ERC-20 tokens."
-  />
-  <ProjectCard
-    imgSrc={"/turbo-runners.png"}
-    techList={["Next.js", "TailwindCSS", "Solidity", "HardHat"]}
-    projectTitle={"Turbo Runners"}
-    siteLink="https://turbo-runners.vercel.app/"
-    githubLink="https://github.com/jacobvanschenck/turbo-runners"
-    description="An ERC-721A minting site with allowlist minting, creator royalties, and delayed art reveal support."
-  />
+  <h2 class="font-semibold mb-2">Projects</h2>
+  <ul class="flex flex-col gap-1">
+    {items.map((item) => (
+      <li class="relative overflow-hidden group rounded-sm group">
+        <a
+          href={item.sourceHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="absolute inset-0 z-20 md:hidden"
+          aria-label={`Open ${item.name} on GitHub`}
+        ></a>
+
+        <div class="flex items-center justify-between p-4 bg-background group-hover:bg-card transition-transform duration-200 ease-out md:group-hover:-translate-x-36">
+          <div class="flex items-center gap-4 w-full">
+            <img
+              class="w-12 h-12 rounded-sm aspect-square object-cover flex-shrink-0"
+              src={item.webpSrc}
+              alt={item.name}
+              loading="lazy"
+            />
+            <div class="flex justify-between items-center border-b pb-4 grow w-full border-card -mb-4">
+              <div class="flex flex-col">
+                <p class="text-foreground font-medium">{item.name}</p>
+                <p class="text-sm text-muted-foreground">{item.description}</p>
+              </div>
+              <div>
+                <span class="text-sm bg-secondary text-secondary-foreground rounded-sm px-2.5 py-1">
+                  {item.tag}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Revealed Action Buttons (Desktop only) */}
+        <div class="absolute top-0 right-0 bottom-0 hidden md:flex w-36 translate-x-full transition-transform duration-200 ease-out group-hover:translate-x-0 z-10">
+          <a
+            href={item.sourceHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-1/2 bg-muted text-muted-foreground hover:bg-muted/80 flex items-center justify-center font-medium text-xs transition-colors"
+          >
+            Source
+          </a>
+          <a
+            href={item.siteHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-1/2 bg-primary text-primary-foreground hover:bg-primary/90 flex items-center justify-center font-medium text-xs transition-colors"
+          >
+            Site
+          </a>
+        </div>
+      </li>
+    ))}
+  </ul>
 </section>
+<!---->
+<!-- <ProjectCard -->
+<!--   imgSrc={"/TsunamiTrades.png"} -->
+<!--   techList={["React", "TailwindCSS", "Solidity", "HardHat", "Viem"]} -->
+<!--   projectTitle={"MyDex"} -->
+<!--   siteLink="https://dex-vs.netlify.app/" -->
+<!--   githubLink="https://github.com/jacobvanschenck/tsunami-trades" -->
+<!--   description="A Web3 trading prototype for creating market and limit orders against ERC-20 tokens." -->
+<!-- /> -->
+<!-- <ProjectCard -->
+<!--   imgSrc={"/turbo-runners.png"} -->
+<!--   techList={["Next.js", "TailwindCSS", "Solidity", "HardHat"]} -->
+<!--   projectTitle={"Turbo Runners"} -->
+<!--   siteLink="https://turbo-runners.vercel.app/" -->
+<!--   githubLink="https://github.com/jacobvanschenck/turbo-runners" -->
+<!--   description="An ERC-721A minting site with allowlist minting, creator royalties, and delayed art reveal support." -->
+<!-- /> -->
