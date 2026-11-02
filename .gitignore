@@ -2,6 +2,9 @@
 .netlify/
 dist/
 
+# cloudflare
+.wrangler/
+
 # generated types
 .astro/
 
