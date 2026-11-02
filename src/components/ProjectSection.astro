@@ -1,0 +1,23 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+---
+
+<section id="projects" class="flex flex-col">
+  <h2 class="font-black">Projects</h2>
+  <ProjectCard
+    imgSrc={"/TsunamiTrades.png"}
+    techList={["React", "TailwindCSS", "Solidity", "HardHat", "Viem"]}
+    projectTitle={"MyDex"}
+    siteLink="https://dex-vs.netlify.app/"
+    githubLink="https://github.com/jacobvanschenck/tsunami-trades"
+    description="A Web3 trading prototype for creating market and limit orders against ERC-20 tokens."
+  />
+  <ProjectCard
+    imgSrc={"/turbo-runners.png"}
+    techList={["Next.js", "TailwindCSS", "Solidity", "HardHat"]}
+    projectTitle={"Turbo Runners"}
+    siteLink="https://turbo-runners.vercel.app/"
+    githubLink="https://github.com/jacobvanschenck/turbo-runners"
+    description="An ERC-721A minting site with allowlist minting, creator royalties, and delayed art reveal support."
+  />
+</section>

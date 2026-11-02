@@ -1,0 +1,54 @@
+---
+const items = [
+  {
+    company: "Overflow",
+    href: "/overflow",
+    webpSrc: "/overflow/overflow-logo.webp",
+    jobTitle: "Software Engineer II",
+    dates: "2025 – Now",
+  },
+  {
+    company: "Bunches",
+    href: "/bunches",
+    webpSrc: "/bunches/bunches-logo.webp",
+    jobTitle: "Software Engineer",
+    dates: "2022 – 2024",
+  },
+  {
+    company: "Friends on Chain",
+    href: "/friends-on-chain",
+    webpSrc: "/friends-on-chain/foc-logo.webp",
+    jobTitle: "Softwarn Engineer Intern",
+    dates: "2022",
+  },
+];
+---
+
+<section id="work" class="flex flex-col">
+  <h2 class="font-semibold text-foreground">Work</h2>
+  <ol>
+    {items.map((item) => (
+      <li>
+        <a
+          href={item.href}
+          class="flex justify-between cursor-pointer p-4 -mx-4 transition-colors duration-100 group hover:bg-card hover:text-muted-foreground rounded-sm"
+        >
+          <div class="flex item-center gap-4 w-full">
+            <img
+              class="w-12 h-12 rounded-sm"
+              src={item.webpSrc}
+              loading="lazy"
+            />
+            <div class="flex justify-between border-b grow w-full border-card -mb-4">
+              <div class="flex flex-col">
+                <p class="text-foreground">{item.company}</p>
+                <p class="text-sm">{item.jobTitle}</p>
+              </div>
+              {item.dates}
+            </div>
+          </div>
+        </a>
+      </li>
+    ))}
+  </ol>
+</section>
