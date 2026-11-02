@@ -1,8 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-import Footer from "../components/Footer.astro";
-
 const contributions = [
   "Led the Capacitor client from early Turborepo scaffolding into a production-grade mobile/web app, authoring 485 commits in the monorepo.",
   "Built real-time bunch chat with Phoenix channels, optimistic updates, message history, edits, deletes, reactions, threads, and Zod validation.",
@@ -80,21 +78,18 @@ const productScreens = [
       <section class="flex flex-col gap-8">
         <a
           href="/#work"
-          class="flex gap-2 items-center self-start font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+          class="flex gap-2 items-center self-start font-bold transition-all duration-150 group"
         >
-          <span class="transition-transform duration-150 group-hover:-translate-x-1">
-            {"<-"}
+          <span class="transition-transform duration-75 ease-in-out group-hover:-translate-x-1">
+            {"<"}
           </span>
-          Back to Bunches
+          Back
         </a>
         <div class="flex flex-col gap-5">
-          <p class="text-sm font-bold text-violet-600 uppercase dark:text-amber-500 tracking-[0.2em]">
-            Product Engineering Case Study
-          </p>
-          <h1 class="text-4xl font-black leading-tight sm:text-6xl">
+          <h1 class="text-4xl font-bold text-foreground leading-tight sm:text-6xl">
             Bunches. Chat Sports.
           </h1>
-          <p class="max-w-3xl text-lg text-slate-600 dark:text-slate-300">
+          <p class="max-w-3xl text-lg">
             A mobile-first social app for sports communities with real-time
             chat, group discovery, direct messages, rewards, picks, native
             Android flows, and REP-powered onchain interactions.
@@ -103,8 +98,8 @@ const productScreens = [
       </section>
 
       <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-        <h2 class="text-3xl font-black">Overview</h2>
-        <div class="flex flex-col gap-4 text-slate-600 dark:text-slate-300">
+        <h2 class="text-3xl font-bold text-foreground">Overview</h2>
+        <div class="flex flex-col gap-4">
           <p>
             Bunches needed a community product where sports fans could join
             groups, chat in real time, share content, receive notifications,
@@ -121,10 +116,10 @@ const productScreens = [
       </section>
 
       <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-        <h2 class="text-3xl font-black">Impact</h2>
+        <h2 class="text-3xl font-bold text-foreground">Impact</h2>
         <ul class="grid gap-3">
           {contributions.map((item) => (
-            <li class="p-4 rounded-xl border border-slate-300 bg-slate-100/60 dark:border-slate-600 dark:bg-slate-800/50">
+            <li class="p-4 rounded-xl border bg-card text-card-foreground">
               {item}
             </li>
           ))}
@@ -133,15 +128,15 @@ const productScreens = [
 
       <section class="flex flex-col gap-8">
         <div class="flex flex-col gap-3">
-          <h2 class="text-3xl font-black">Product Screens</h2>
-          <p class="text-slate-600 dark:text-slate-300">
+          <h2 class="text-3xl font-bold text-foreground">Product Screens</h2>
+          <p>
             Real Bunches screens from the mobile app and Android delivery flow:
             chat, profile, rankings, scoreboard, takes, and device install
             context.
           </p>
         </div>
         <div class="grid gap-5 md:grid-cols-2">
-          <figure class="overflow-hidden rounded-2xl border shadow-xl md:col-span-2 border-slate-300 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
+          <figure class="overflow-hidden rounded-2xl border shadow-xl md:col-span-2 transition-all hover:translate-y-0.5 duration-75 ease-in-out">
             <img
               src="/bunches/bunches-on-android-1200.webp"
               srcset="/bunches/bunches-on-android-1200.webp 1200w, /bunches/bunches-on-android-1800.webp 1800w"
@@ -152,13 +147,13 @@ const productScreens = [
               height="1480"
               loading="lazy"
             />
-            <figcaption class="py-3 px-4 text-sm font-bold text-violet-600 dark:text-amber-500">
+            <figcaption class="py-3 px-4 text-sm font-bold bg-card text-card-foreground">
               Android App Delivery
             </figcaption>
           </figure>
           <div class="grid grid-cols-2 gap-5 md:col-span-2 lg:grid-cols-5">
             {productScreens.map((screen) => (
-              <figure class="flex overflow-hidden flex-col justify-between bg-white rounded-2xl border shadow-xl">
+              <figure class="flex overflow-hidden flex-col justify-between bg-white rounded-2xl border shadow-xl transition-all hover:translate-y-0.5 duration-75 ease-in-out">
                 <img
                   src={screen.webpSrc}
                   srcset={screen.srcSet}
@@ -169,7 +164,7 @@ const productScreens = [
                   height={screen.height}
                   loading="lazy"
                 />
-                <figcaption class="flex justify-center items-center py-3 px-3 text-sm font-bold text-center text-violet-600 dark:text-amber-500 bg-slate-100/70 dark:border-slate-600 dark:bg-slate-800/60">
+                <figcaption class="flex justify-center items-center py-3 px-3 text-sm font-bold text-center bg-card text-card-foreground">
                   {screen.title}
                 </figcaption>
               </figure>
@@ -179,16 +174,16 @@ const productScreens = [
       </section>
 
       <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-        <h2 class="text-3xl font-black">Tech & Constraints</h2>
+        <h2 class="text-3xl font-bold text-foreground">Tech & Constraints</h2>
         <div class="flex flex-col gap-5">
           <ul class="flex flex-wrap gap-2">
             {technologies.map((tech) => (
-              <li class="py-1 px-3 text-xs text-violet-800 rounded-3xl sm:text-sm bg-violet-300/40 dark:bg-amber-800/40 dark:text-amber-100/90">
+              <li class="py-1 px-3 text-xs rounded-3xl sm:text-sm bg-secondary text-secondary-foreground hover:bg-secondary/90 hover:translate-y-0.5 transition-all duration-75 ease-in-out">
                 {tech}
               </li>
             ))}
           </ul>
-          <p class="text-slate-600 dark:text-slate-300">
+          <p>
             The key engineering challenge was coordinating native mobile
             behavior, web rendering, realtime messaging, GraphQL server state,
             local interaction state, wallet recovery, signed transactions,
@@ -200,14 +195,13 @@ const productScreens = [
 
       <a
         href="/#bunches"
-        class="flex gap-2 items-center self-start pb-20 font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+        class="flex gap-2 items-center self-start pb-20 font-bold transition-all duration-75 ease-in-out group"
       >
         <span class="transition-transform duration-150 group-hover:-translate-x-1">
-          {"<-"}
+          {"<"}
         </span>
-        Back to Bunches
+        Back
       </a>
     </main>
-    <Footer />
   </div>
 </BaseLayout>

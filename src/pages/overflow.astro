@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Footer from "../components/Footer.astro";
 
 const contributions = [
   "Contributed across backend services, frontend apps, shared types, design system components, tests, and tooling.",
@@ -76,9 +75,6 @@ const givingFlowScreens = [
   srcSet: `/overflow/${file}-480.webp 480w, /overflow/${file}-726.webp 726w`,
   alt,
 }));
-
-const unreleasedScreenNotice =
-  "Preview withheld until these product surfaces are publicly available.";
 ---
 
 <BaseLayout
@@ -90,21 +86,18 @@ const unreleasedScreenNotice =
       <section class="flex flex-col gap-8">
         <a
           href="/#work"
-          class="flex gap-2 items-center self-start font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+          class="flex gap-2 items-center self-start font-bold transition-all duration-75 ease-in-out group"
         >
-          <span class="transition-transform duration-150 group-hover:-translate-x-1">
-            {"<-"}
+          <span class="transition-transform duration-75 ease-in-out group-hover:-translate-x-1">
+            {"<"}
           </span>
-          Back to Overflow
+          Back
         </a>
         <div class="flex flex-col gap-5">
-          <p class="text-sm font-bold text-violet-600 uppercase dark:text-amber-500 tracking-[0.2em]">
-            Full-Stack Platform Engineering Case Study
-          </p>
-          <h1 class="text-4xl font-black leading-tight sm:text-6xl">
+          <h1 class="text-4xl font-bold text-foreground leading-tight sm:text-6xl">
             Overflow
           </h1>
-          <p class="max-w-3xl text-lg text-slate-600 dark:text-slate-300">
+          <p class="max-w-3xl text-lg">
             A multi-channel nonprofit giving platform that helps organizations
             accept and manage donations across cash, stock, crypto,
             donor-advised funds, pledges, recurring giving, roundups, and
@@ -114,8 +107,8 @@ const unreleasedScreenNotice =
       </section>
 
       <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-        <h2 class="text-3xl font-black">Overview</h2>
-        <div class="flex flex-col gap-4 text-slate-600 dark:text-slate-300">
+        <h2 class="text-3xl font-bold text-foreground">Overview</h2>
+        <div class="flex flex-col gap-4">
           <p>
             Overflow combines donor-facing donation flows, nonprofit admin
             tooling, payment processing, reporting, reconciliation, and
@@ -133,10 +126,10 @@ const unreleasedScreenNotice =
       </section>
 
       <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-        <h2 class="text-3xl font-black">Impact</h2>
+        <h2 class="text-3xl font-bold text-foreground">Impact</h2>
         <ul class="grid gap-3">
           {contributions.map((item) => (
-            <li class="p-4 rounded-xl border border-slate-300 bg-slate-100/60 dark:border-slate-600 dark:bg-slate-800/50">
+            <li class="p-4 rounded-xl border bg-card text-card-foreground">
               {item}
             </li>
           ))}
@@ -145,33 +138,26 @@ const unreleasedScreenNotice =
 
       <section class="flex flex-col gap-8">
         <div class="flex flex-col gap-3">
-          <h2 class="text-3xl font-black">Dashboard Product Screens</h2>
-          <p class="text-slate-600 dark:text-slate-300">
-            Nonprofit dashboard workflows for funds, fund details, locations,
-            admin management, invitations, and creation flows.
-          </p>
+          <h2 class="text-3xl font-bold text-foreground">
+            Dashboard Product Screens
+          </h2>
         </div>
         <div class="grid gap-5 md:grid-cols-2">
           {dashboardScreens.map((screen) => (
-            <figure class="overflow-hidden rounded-2xl border border-slate-300 bg-slate-100/70 shadow-xl dark:border-slate-600 dark:bg-slate-800/60">
+            <figure class="overflow-hidden rounded-2xl border bg-card shadow-xl hover:translate-y-0.5 transition-all duration-75 ease-in-out">
               <div class="relative overflow-hidden">
                 <img
                   src={screen.src}
                   srcset={screen.srcSet}
                   sizes="(min-width: 768px) 458px, calc(100vw - 64px)"
                   alt={screen.alt}
-                  class="w-full scale-[1.02] blur-sm grayscale"
+                  class="w-full"
                   width="3248"
                   height="2122"
                   loading="lazy"
                 />
-                <div class="absolute inset-0 flex items-center justify-center bg-slate-950/35 p-6 text-center backdrop-blur-[1px]">
-                  <p class="max-w-xs rounded-xl border border-white/20 bg-slate-950/75 px-4 py-3 text-sm font-bold text-slate-50 shadow-xl">
-                    {unreleasedScreenNotice}
-                  </p>
-                </div>
               </div>
-              <figcaption class="px-4 py-3 text-sm font-bold text-violet-600 dark:text-amber-500">
+              <figcaption class="px-4 py-3 text-sm font-bold text-card-foreground">
                 {screen.title}
               </figcaption>
             </figure>
@@ -181,16 +167,13 @@ const unreleasedScreenNotice =
 
       <section class="flex flex-col gap-8">
         <div class="flex flex-col gap-3">
-          <h2 class="text-3xl font-black">Giving Flow Product Screens</h2>
-          <p class="text-slate-600 dark:text-slate-300">
-            Donor-facing mobile giving screens for starting a gift, selecting
-            locations and funds, choosing payment methods, and completing the
-            donation.
-          </p>
+          <h2 class="text-3xl font-bold text-foreground">
+            Giving Flow Product Screens
+          </h2>
         </div>
         <div class="grid grid-cols-2 gap-5 lg:grid-cols-4">
           {givingFlowScreens.map((screen) => (
-            <figure class="flex flex-col overflow-hidden rounded-2xl border border-slate-300 bg-slate-100/70 shadow-xl dark:border-slate-600 dark:bg-slate-800/60">
+            <figure class="flex flex-col overflow-hidden rounded-2xl border shadow-xl bg-white hover:translate-y-0.5 transition-all duration-75 ease-in-out">
               <img
                 src={screen.src}
                 srcset={screen.srcSet}
@@ -201,7 +184,7 @@ const unreleasedScreenNotice =
                 height="1602"
                 loading="lazy"
               />
-              <figcaption class="flex min-h-16 items-center justify-center px-3 py-3 text-sm font-bold text-center text-violet-600 dark:text-amber-500">
+              <figcaption class="flex min-h-16 items-center justify-center px-3 py-3 text-sm font-bold text-center bg-card text-card-foreground">
                 {screen.title}
               </figcaption>
             </figure>
@@ -210,11 +193,11 @@ const unreleasedScreenNotice =
       </section>
 
       <section class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-        <h2 class="text-3xl font-black">Tech & Constraints</h2>
+        <h2 class="text-3xl font-bold text-foreground">Tech & Constraints</h2>
         <div class="flex flex-col gap-5">
           <ul class="flex flex-wrap gap-2">
             {technologies.map((tech) => (
-              <li class="py-1 px-3 text-xs text-violet-800 rounded-3xl sm:text-sm bg-violet-300/40 dark:bg-amber-800/40 dark:text-amber-100/90">
+              <li class="py-1 px-3 text-xs rounded-3xl sm:text-sm bg-secondary text-secondary-foreground hover:bg-secondary/90 hover:translate-y-0.5 transition-all duration-75 ease-in-out">
                 {tech}
               </li>
             ))}
@@ -230,14 +213,13 @@ const unreleasedScreenNotice =
 
       <a
         href="/#overflow"
-        class="flex gap-2 items-center self-start pb-20 font-bold text-violet-600 transition-all duration-150 dark:text-amber-500 group"
+        class="flex gap-2 items-center self-start pb-20 font-bold transition-all duration-75 ease-in-out group"
       >
-        <span class="transition-transform duration-150 group-hover:-translate-x-1">
-          {"<-"}
+        <span class="transition-transform duration-75 group-hover:-translate-x-1 ease-in-out">
+          {"<"}
         </span>
-        Back to Overflow
+        Back
       </a>
     </main>
-    <Footer />
   </div>
 </BaseLayout>
